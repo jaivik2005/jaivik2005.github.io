@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Jaivik Prajapati</title>
+    <meta name="description" content="Explore Jaivik Prajapati's portfolio featuring web development projects, MERN stack applications, and AI-integrated solutions.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="modern-styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">JP</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portfolio Hero Section -->
+    <section id="portfolio-hero" class="hero" style="min-height: 60vh;">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>My Portfolio</h1>
+                <p class="hero-subtitle">Projects That Define My Journey</p>
+                <p class="hero-description">
+                    A collection of projects showcasing my skills in web development, AI integration, 
+                    and modern design. Each project represents a unique challenge solved with creativity and technical expertise.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">
+                    Standout projects that demonstrate my capabilities and passion for innovation
+                </p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3>Web Development Roadmap</h3>
+                    <p>
+                        An interactive learning platform that guides aspiring web developers through a comprehensive 7-stage curriculum. 
+                        Features include progress tracking, project-based learning, and career guidance.
+                    </p>
+                    <div style="margin: 1.5rem 0;">
+                        <strong style="color: var(--neon-blue);">Key Features:</strong>
+                        <ul style="margin-top: 0.5rem; color: var(--text-secondary);">
+                            <li>7-stage progressive learning path</li>
+                            <li>Interactive project challenges</li>
+                            <li>Resource recommendations</li>
+                            <li>Progress tracking system</li>
+                        </ul>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.8rem; color: var(--neon-blue); margin-right: 0.5rem;">HTML5</span>
+                        </span>
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.8rem; color: var(--neon-blue); margin-right: 0.5rem;">CSS3</span>
+                        </span>
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.8rem; color: var(--neon-blue); margin-right: 0.5rem;">JavaScript</span>
+                        </span>
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.8rem; color: var(--neon-blue); margin-right: 0.5rem;">Responsive Design</span>
+                        </span>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="roadmap.html" class="btn btn-primary">
+                            <i class="fas fa-eye"></i>
+                            View Live
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fab fa-github"></i>
+                            Source Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Learning Resources Hub</h3>
+                    <p>
+                        A comprehensive educational platform aggregating the best web development resources, tutorials, 
+                        and learning materials in one accessible location.
+                    </p>
+                    <div style="margin: 1.5rem 0;">
+                        <strong style="color: var(--neon-blue);">Key Features:</strong>
+                        <ul style="margin-top: 0.5rem; color: var(--text-secondary);">
+                            <li>Curated resource collection</li>
+                            <li>Interactive course content</li>
+                            <li>Skill-based categorization</li>
+                            <li>Progress tracking</li>
+                        </ul>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.8rem; color: var(--neon-blue); margin-right: 0.5rem;">React</span>
+                        </span>
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.8rem; color: var(--neon-blue); margin-right: 0.5rem;">Node.js</span>
+                        </span>
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.8rem; color: var(--neon-blue); margin-right: 0.5rem;">MongoDB</span>
+                        </span>
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.8rem; color: var(--neon-blue); margin-right: 0.5rem;">REST API</span>
+                        </span>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="blog.html" class="btn btn-primary">
+                            <i class="fas fa-eye"></i>
+                            View Live
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fab fa-github"></i>
+                            Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Categories -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Project Categories</h2>
+                <p class="section-description">
+                    Explore different types of projects based on technology and complexity
+                </p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Frontend Projects</h3>
+                    <p>Interactive web applications showcasing modern UI/UX design and responsive layouts.</p>
+                    <ul style="margin-top: 1rem; color: var(--text-secondary);">
+                        <li>Responsive Websites</li>
+                        <li>Landing Pages</li>
+                        <li>Interactive Dashboards</li>
+                        <li>Component Libraries</li>
+                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.7rem; color: var(--neon-blue);">React</span>
+                        </span>
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.7rem; color: var(--neon-blue);">Vue.js</span>
+                        </span>
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.7rem; color: var(--neon-blue);">Tailwind</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Full-Stack Apps</h3>
+                    <p>Complete web applications with frontend, backend, and database integration.</p>
+                    <ul style="margin-top: 1rem; color: var(--text-secondary);">
+                        <li>RESTful APIs</li>
+                        <li>User Authentication</li>
+                        <li>Database Management</li>
+                        <li>Real-time Features</li>
+                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.7rem; color: var(--neon-blue);">MERN</span>
+                        </span>
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.7rem; color: var(--neon-blue);">PHP</span>
+                        </span>
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.7rem; color: var(--neon-blue);">MySQL</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Integration</h3>
+                    <p>Smart applications enhanced with artificial intelligence and machine learning capabilities.</p>
+                    <ul style="margin-top: 1rem; color: var(--text-secondary);">
+                        <li>AI Chatbots</li>
+                        <li>Image Processing</li>
+                        <li>Data Analysis</li>
+                        <li>Smart Automation</li>
+                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.7rem; color: var(--neon-blue);">TensorFlow</span>
+                        </span>
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.7rem; color: var(--neon-blue);">OpenAI</span>
+                        </span>
+                        <span class="skill-item" style="display: inline-block; margin: 0.25rem; background: var(--glass-bg);">
+                            <span style="font-size: 0.7rem; color: var(--neon-blue);">Python</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Demonstrated -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Skills Demonstrated</h2>
+                <p class="section-description">
+                    Technical skills showcased across my portfolio projects
+                </p>
+            </div>
+            
+            <div class="grid grid-4">
+                <div class="card">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <div class="skill-text">
+                            <strong>Frontend Development</strong><br>
+                            <small>HTML5, CSS3, JavaScript</small>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="skill-text">
+                            <strong>React Development</strong><br>
+                            <small>Component Architecture, Hooks</small>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <div class="skill-text">
+                            <strong>Backend Development</strong><br>
+                            <small>Node.js, Express, APIs</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="skill-text">
+                            <strong>Database Design</strong><br>
+                            <small>MongoDB, MySQL</small>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-php"></i>
+                        </div>
+                        <div class="skill-text">
+                            <strong>PHP Development</strong><br>
+                            <small>Laravel, Custom Frameworks</small>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="skill-text">
+                            <strong>Responsive Design</strong><br>
+                            <small>Mobile-First Approach</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="skill-text">
+                            <strong>AI Integration</strong><br>
+                            <small>Machine Learning, NLP</small>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="skill-text">
+                            <strong>Cloud Deployment</strong><br>
+                            <small>AWS, Netlify, Vercel</small>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <div class="skill-text">
+                            <strong>Version Control</strong><br>
+                            <small>Git, GitHub, CI/CD</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="skill-text">
+                            <strong>SEO Optimization</strong><br>
+                            <small>Performance, Accessibility</small>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="skill-text">
+                            <strong>Security</strong><br>
+                            <small>Authentication, Data Protection</small>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="skill-text">
+                            <strong>Analytics</strong><br>
+                            <small>User Tracking, Performance</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section">
+        <div class="section-container">
+            <div class="text-center">
+                <div class="card" style="max-width: 800px; margin: 0 auto;">
+                    <h2>Like What You See?</h2>
+                    <p>
+                        These projects represent my passion for creating innovative web solutions. 
+                        Let's collaborate on your next project and bring your ideas to life.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            Start a Project
+                        </a>
+                        <a href="services.html" class="btn btn-secondary">
+                            <i class="fas fa-cog"></i>
+                            View Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Jaivik Prajapati. All rights reserved.</p>
+            <p>Built with passion using modern web technologies.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -239,6 +239,7 @@ blockquote {
   }
 
   .tech-stack-logos {
+<<<<<<< HEAD
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: 10px;
   }
@@ -255,14 +256,22 @@ blockquote {
 
   .tech-name {
     font-size: 0.75em;
+=======
+    grid-template-columns: repeat(2, 1fr);
+>>>>>>> 0b5f08c (add road map)
   }
 }
 
 /* Tech Stack Logos Styles */
 .tech-stack-logos {
   display: grid;
+<<<<<<< HEAD
   grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
   gap: 12px;
+=======
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+>>>>>>> 0b5f08c (add road map)
   margin-top: 15px;
 }
 
@@ -271,6 +280,7 @@ blockquote {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
   padding: 15px 10px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 10px;
@@ -300,6 +310,30 @@ blockquote {
   text-align: center;
   word-break: break-word;
   line-height: 1.2;
+=======
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tech-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(102, 126, 234, 0.3);
+}
+
+.tech-logo {
+  font-size: 2em;
+  margin-bottom: 5px;
+}
+
+.tech-name {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+>>>>>>> 0b5f08c (add road map)
 }
 
 /* Education Info Styles */
@@ -383,6 +417,7 @@ blockquote {
   font-weight: 600;
   color: white;
 }
+<<<<<<< HEAD
 
 /* Global Styles Enhancement */
 * {
@@ -706,3 +741,5 @@ body {
     grid-template-columns: 1fr;
   }
 }
+=======
+>>>>>>> 0b5f08c (add road map)

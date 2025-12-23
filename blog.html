@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📚 Learning Resources - Web Development</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Learning Resources - Jaivik Prajapati</title>
+    <meta name="description" content="Curated learning resources for web development, MERN stack, and modern programming technologies. Start your journey to becoming a web developer.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="modern-styles.css">
     <style>
+<<<<<<< HEAD
         * {
             margin: 0;
             padding: 0;
@@ -40,11 +52,52 @@
         .blog-header p {
             font-size: 1.2em;
             opacity: 0.95;
+=======
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            transition: var(--transition-normal);
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-5px);
+        }
+
+        .blog-hero {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .blog-hero h1 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .blog-hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+>>>>>>> 0b5f08c (add road map)
         }
 
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+<<<<<<< HEAD
             gap: 30px;
             margin-bottom: 50px;
         }
@@ -68,16 +121,43 @@
         .learning-card:hover {
             transform: translateY(-12px);
             box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+=======
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .learning-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition-normal);
+            position: relative;
+        }
+
+        .learning-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+>>>>>>> 0b5f08c (add road map)
         }
 
         .card-banner {
             height: 200px;
+<<<<<<< HEAD
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+=======
+            background: var(--accent-gradient);
+>>>>>>> 0b5f08c (add road map)
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4em;
+<<<<<<< HEAD
             color: white;
+=======
+            color: var(--text-primary);
+>>>>>>> 0b5f08c (add road map)
             position: relative;
             overflow: hidden;
         }
@@ -105,6 +185,7 @@
         }
 
         .card-content {
+<<<<<<< HEAD
             padding: 30px 25px;
             flex-grow: 1;
             display: flex;
@@ -165,22 +246,89 @@
             font-weight: 600;
             transition: all 0.3s ease;
             flex: 1;
+=======
+            padding: var(--spacing-xl);
+        }
+
+        .card-content h2 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .card-content p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+            margin-top: auto;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--neon-blue);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: var(--font-weight-medium);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+        }
+
+        .card-footer {
+            padding: 0 var(--spacing-xl) var(--spacing-xl);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .btn-explore {
+            background: var(--accent-gradient);
+            color: var(--text-primary);
+            border: none;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition-normal);
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-xs);
+>>>>>>> 0b5f08c (add road map)
         }
 
         .btn-explore:hover {
             transform: scale(1.05);
+<<<<<<< HEAD
             box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
         }
 
         .arrow-icon {
             font-size: 1.3em;
             transition: transform 0.3s ease;
+=======
+            box-shadow: 0 8px 20px rgba(0, 245, 255, 0.4);
+        }
+
+        .arrow-icon {
+            transition: var(--transition-normal);
+>>>>>>> 0b5f08c (add road map)
         }
 
         .learning-card:hover .arrow-icon {
             transform: translateX(5px);
         }
 
+<<<<<<< HEAD
         .tags {
             display: flex;
             gap: 8px;
@@ -237,19 +385,29 @@
 
             .blog-header p {
                 font-size: 1em;
+=======
+        @media (max-width: 768px) {
+            .blog-container {
+                padding: 0 var(--spacing-md);
+>>>>>>> 0b5f08c (add road map)
             }
 
             .cards-grid {
                 grid-template-columns: 1fr;
+<<<<<<< HEAD
                 gap: 20px;
             }
 
             .card-content h2 {
                 font-size: 1.4em;
+=======
+                gap: var(--spacing-lg);
+>>>>>>> 0b5f08c (add road map)
             }
 
             .card-banner {
                 height: 150px;
+<<<<<<< HEAD
                 font-size: 3em;
             }
         }
@@ -528,21 +686,55 @@
 
             .modal-header h1 {
                 font-size: 1.5em;
+=======
+                font-size: 3rem;
+>>>>>>> 0b5f08c (add road map)
             }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">JP</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
     <div class="blog-container">
+<<<<<<< HEAD
         <a href="/" class="back-to-home">← Back to Home</a>
 
         <div class="blog-header">
             <h1>📚 Learning Resources</h1>
+=======
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+
+        <div class="blog-hero">
+            <h1><i class="fas fa-book"></i> Learning Resources</h1>
+>>>>>>> 0b5f08c (add road map)
             <p>Master Web Development Step by Step</p>
         </div>
 
         <div class="cards-grid">
             <!-- Roadmap Card -->
+<<<<<<< HEAD
             <a href="roadmap.html" class="card-link">
                 <div class="learning-card">
                     <div class="card-banner">
@@ -580,7 +772,232 @@
         <div class="footer">
             <p>© 2025 Jaivik Prajapati | Learn. Build. Ship. 🚀</p>
             <p style="margin-top: 10px; font-size: 0.9em;">Start with the roadmap to plan your learning journey!</p>
+=======
+            <div class="learning-card">
+                <div class="card-banner">
+                    <div class="card-emoji">
+                        <i class="fas fa-road"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2><i class="fas fa-map"></i> Web Development Roadmap</h2>
+                    <p>A complete step-by-step learning path from HTML & CSS basics all the way to React and landing your first job. Learn the industry-standard technologies and build real-world projects.</p>
+                    <div class="tags">
+                        <span class="tag">Beginner Friendly</span>
+                        <span class="tag">6-12 Months</span>
+                        <span class="tag">7 Stages</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="roadmap.html" class="btn-explore">
+                        Explore Roadmap
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Additional Learning Resources Cards -->
+            <div class="learning-card">
+                <div class="card-banner">
+                    <div class="card-emoji">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2><i class="fas fa-laptop-code"></i> HTML & CSS Master Course</h2>
+                    <p>Comprehensive course covering HTML5, CSS3, responsive design, and modern CSS techniques. Perfect for beginners and intermediate developers looking to master web fundamentals.</p>
+                    <div class="tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">Responsive</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="htmlcss.html" class="btn-explore">
+                        Start Learning
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="learning-card">
+                <div class="card-banner">
+                    <div class="card-emoji">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2><i class="fas fa-bolt"></i> JavaScript Essentials</h2>
+                    <p>Master JavaScript from basics to advanced concepts including ES6+, async programming, DOM manipulation, and modern JavaScript development practices.</p>
+                    <div class="tags">
+                        <span class="tag">ES6+</span>
+                        <span class="tag">Async/Await</span>
+                        <span class="tag">DOM</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-explore">
+                        Coming Soon
+                        <i class="fas fa-clock arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="learning-card">
+                <div class="card-banner">
+                    <div class="card-emoji">
+                        <i class="fab fa-react"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2><i class="fas fa-atom"></i> React Development</h2>
+                    <p>Learn React from the ground up including components, hooks, state management, routing, and building real-world applications with modern React patterns.</p>
+                    <div class="tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Hooks</span>
+                        <span class="tag">Components</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-explore">
+                        Coming Soon
+                        <i class="fas fa-clock arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="learning-card">
+                <div class="card-banner">
+                    <div class="card-emoji">
+                        <i class="fas fa-server"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2><i class="fas fa-database"></i> Backend Development</h2>
+                    <p>Complete guide to backend development covering Node.js, Express, databases, APIs, authentication, and deployment strategies for scalable web applications.</p>
+                    <div class="tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Express</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-explore">
+                        Coming Soon
+                        <i class="fas fa-clock arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="learning-card">
+                <div class="card-banner">
+                    <div class="card-emoji">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2><i class="fas fa-brain"></i> AI & Web Integration</h2>
+                    <p>Explore the intersection of artificial intelligence and web development. Learn to integrate AI capabilities into web applications using modern tools and APIs.</p>
+                    <div class="tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">APIs</span>
+                        <span class="tag">Machine Learning</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-explore">
+                        Coming Soon
+                        <i class="fas fa-clock arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <div class="card" style="max-width: 600px; margin: 0 auto;">
+                <h3>More Resources Coming Soon!</h3>
+                <p>I'm continuously working on creating more comprehensive learning resources. Stay tuned for courses on advanced topics like deployment, testing, and best practices.</p>
+                <div class="social-links" style="justify-content: center; margin-top: 1.5rem;">
+                    <a href="mailto:jaivikprajapati82@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jaivik-prajapati-115362284" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/jaivik2005" target="_blank" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+>>>>>>> 0b5f08c (add road map)
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Jaivik Prajapati | Learn. Build. Ship. <i class="fas fa-rocket"></i></p>
+            <p>Start with the roadmap to plan your learning journey!</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.8)';
+            }
+        });
+
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe learning cards
+        document.querySelectorAll('.learning-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
+
