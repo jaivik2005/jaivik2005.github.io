@@ -1,178 +1,712 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Road map for Web Development</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f7ff; color:#222; padding:24px; }
-    .container{ max-width:1000px; margin:0 auto; }
-    .hero{ text-align:center; margin-bottom:24px }
-    .hero h1{ font-size:2rem; color:#333 }
-    .summary{ text-align:center; color:#555; margin-bottom:30px }
-    .stages{ display:grid; gap:16px }
-    .stage{ background:white; border-radius:12px; box-shadow:0 8px 30px rgba(50,50,93,0.08); overflow:hidden }
-    .stage-header{ display:flex; align-items:center; gap:12px; padding:18px; cursor:pointer }
-    .stage-number{ width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; color:white }
-    .stage-title{ font-size:1.05rem; font-weight:700 }
-    .stage-meta{ margin-left:auto; color:#667eea; font-weight:700 }
-    .stage-body{ padding:18px; border-top:1px solid #f1f4ff; display:none }
-    .stage-body.show{ display:block }
-    .btns{ display:flex; gap:12px; margin-top:12px }
-    .btn{ background:#667eea; color:white; padding:10px 14px; border-radius:8px; text-decoration:none }
-    @media (max-width:640px){ .stage-header{ padding:14px } }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Roadmap | Beginner to Job Ready</title>
+    <meta name="description" content="Complete web development roadmap from HTML, CSS, JavaScript to React and job preparation.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .progress-section {
+            margin: 40px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .progress-bar-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            height: 12px;
+            overflow: hidden;
+            margin: 15px 0;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff88, #00d4ff);
+            width: 0%;
+            transition: width 0.8s ease;
+        }
+
+        main {
+            display: grid;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .roadmap-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .roadmap-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .card-header h2 {
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .stage-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .expand-icon {
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .expand-icon.expanded {
+            transform: rotate(180deg);
+        }
+
+        .card-content {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .card-content.show {
+            max-height: 1000px;
+            padding: 25px;
+            border-top: 2px solid #eee;
+        }
+
+        .learning-path {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .skill-icon {
+            font-size: 1.3em;
+        }
+
+        .project-section {
+            background: #F0F4FF;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .project-section h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        .projects-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .project-badge {
+            background: white;
+            color: #667eea;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 2px solid #667eea;
+            font-weight: 600;
+        }
+
+        .duration {
+            color: #666;
+            font-size: 0.9em;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .timeline-connector {
+            display: none;
+        }
+
+        .roadmap-card:not(:last-child) .timeline-connector {
+            display: block;
+            height: 25px;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea 0%, transparent 100%);
+            margin: 0 auto;
+            margin-top: -12px;
+            z-index: 1;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .stat {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            .card-header h2 {
+                font-size: 1.1em;
+            }
+
+            .stage-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1em;
+            }
+
+            .learning-path {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .scroll-hint {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95em;
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="hero">
-      <h1>🗺️ Road map for Web Development</h1>
-      <p class="summary">A progressive, project-driven path from HTML & CSS to landing your first job (7 stages, 15+ projects).</p>
+
+<div class="container">
+    <header>
+        <h1>🚀 Web Development Roadmap</h1>
+    </header>
+
+    <div class="progress-section">
+        <p style="font-size: 1.1em; margin-bottom: 10px;">Your Learning Journey</p>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <p style="font-size: 0.95em;">7 Stages • ~6-12 Months • Industry Ready</p>
     </div>
 
-    <div class="stages">
-
-      <div class="stage" data-stage="1">
-        <div class="stage-header" onclick="toggleStage(1)">
-          <div class="stage-number" style="background:#667eea">1</div>
-          <div>
-            <div class="stage-title">HTML & CSS Fundamentals</div>
-            <div style="color:#666; font-size:0.9rem">Structure, semantic tags, forms, accessibility, basic layouts</div>
-          </div>
-          <div class="stage-meta">Beginner • 2-4 weeks</div>
+    <div class="summary-stats">
+        <div class="stat">
+            <div class="stat-number">7</div>
+            <div class="stat-label">Learning Stages</div>
         </div>
-        <div class="stage-body" id="stage-1">
-          <p>Learn HTML elements, semantic markup, forms, and CSS fundamentals: box model, selectors, units, colors, typography, Flexbox and Grid basics. Build small projects: personal page, form page, landing section.</p>
-          <ul>
-            <li>Project: Personal portfolio (HTML + CSS)</li>
-            <li>Focus: Semantic HTML, responsive basics</li>
-          </ul>
+        <div class="stat">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Projects</div>
         </div>
-      </div>
-
-      <div class="stage" data-stage="2">
-        <div class="stage-header" onclick="toggleStage(2)">
-          <div class="stage-number" style="background:#FF6B6B">2</div>
-          <div>
-            <div class="stage-title">JavaScript Basics</div>
-            <div style="color:#666; font-size:0.9rem">Syntax, DOM, events, fetch, async basics</div>
-          </div>
-          <div class="stage-meta">Beginner→Intermediate • 1-2 months</div>
+       
+        <div class="stat">
+            <div class="stat-number">6-12</div>
+            <div class="stat-label">Months</div>
         </div>
-        <div class="stage-body" id="stage-2">
-          <p>Understand variables, functions, arrays, objects, DOM manipulation, events, and basic asynchronous patterns. Build interactive projects: todo app, calculator, simple API-driven UI.</p>
-          <ul>
-            <li>Project: Todo app (local state + DOM)</li>
-            <li>Focus: Clean JS, event handling, basic testing</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="stage" data-stage="3">
-        <div class="stage-header" onclick="toggleStage(3)">
-          <div class="stage-number" style="background:#FFD166">3</div>
-          <div>
-            <div class="stage-title">Advanced JavaScript & Tooling</div>
-            <div style="color:#666; font-size:0.9rem">ES6+, modules, bundlers, testing, debugging</div>
-          </div>
-          <div class="stage-meta">Intermediate • 1-2 months</div>
-        </div>
-        <div class="stage-body" id="stage-3">
-          <p>Dive into modern JS: arrow functions, promises, async/await, modules, and build tooling (npm, webpack/parcel/vite). Add unit testing and use browser devtools effectively.</p>
-          <ul>
-            <li>Project: Small SPA with modules and bundler</li>
-            <li>Focus: Code organization, build process</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="stage" data-stage="4">
-        <div class="stage-header" onclick="toggleStage(4)">
-          <div class="stage-number" style="background:#4ECDC4">4</div>
-          <div>
-            <div class="stage-title">Backend Basics & Databases</div>
-            <div style="color:#666; font-size:0.9rem">Node.js, Express, REST, MongoDB (or SQL)</div>
-          </div>
-          <div class="stage-meta">Intermediate • 1-2 months</div>
-        </div>
-        <div class="stage-body" id="stage-4">
-          <p>Learn server fundamentals: build REST APIs, perform CRUD operations, authentication basics, and connect to a database. Deploy small server-powered apps.</p>
-          <ul>
-            <li>Project: Notes API + frontend</li>
-            <li>Focus: API design, security basics</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="stage" data-stage="5">
-        <div class="stage-header" onclick="toggleStage(5)">
-          <div class="stage-number" style="background:#764ba2">5</div>
-          <div>
-            <div class="stage-title">React & Modern Frontend</div>
-            <div style="color:#666; font-size:0.9rem">Components, hooks, routing, state management</div>
-          </div>
-          <div class="stage-meta">Intermediate→Advanced • 1-3 months</div>
-        </div>
-        <div class="stage-body" id="stage-5">
-          <p>Master React fundamentals: functional components, hooks, context, routing, and build patterns. Learn to connect frontends to APIs and manage state. Explore Next.js when ready.</p>
-          <ul>
-            <li>Project: Fullstack React app (auth + CRUD)</li>
-            <li>Focus: Component design, performance, testing</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="stage" data-stage="6">
-        <div class="stage-header" onclick="toggleStage(6)">
-          <div class="stage-number" style="background:#FFD700">6</div>
-          <div>
-            <div class="stage-title">Portfolio & Real Projects</div>
-            <div style="color:#666; font-size:0.9rem">Polish projects, accessibility, SEO, deployment</div>
-          </div>
-          <div class="stage-meta">Project • ongoing</div>
-        </div>
-        <div class="stage-body" id="stage-6">
-          <p>Build and publish projects to showcase skills: portfolio site, blog, e-commerce demo. Focus on deployment, performance, accessibility, and documentation.</p>
-          <ul>
-            <li>Project: Portfolio + 3 showcase projects</li>
-            <li>Focus: Polish, README, deployment (Netlify / Vercel / GitHub Pages)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="stage" data-stage="7">
-        <div class="stage-header" onclick="toggleStage(7)">
-          <div class="stage-number" style="background:#2d6cdf">7</div>
-          <div>
-            <div class="stage-title">Job Search & Freelance</div>
-            <div style="color:#666; font-size:0.9rem">CV, interviews, system design, freelancing basics</div>
-          </div>
-          <div class="stage-meta">Career • ongoing</div>
-        </div>
-        <div class="stage-body" id="stage-7">
-          <p>Prepare for interviews, optimize your CV and GitHub, practice whiteboard and system-design basics for junior roles. Start applying and take freelance gigs for experience.</p>
-          <ul>
-            <li>Focus: Algorithms (basics), system design overview, interview projects</li>
-            <li>Tip: Contribute to an open-source project or freelance to build credibility</li>
-          </ul>
-        </div>
-      </div>
-
     </div>
 
-    <div style="text-align:center; margin-top:22px">
-      <a class="btn" href="blog.html">← Back to Learning Resources</a>
-      <a class="btn" href="/" style="background:#444; margin-left:8px">Home</a>
-    </div>
-  </div>
+    <div class="scroll-hint">👇 Click any stage to expand and see the details</div>
 
-  <script>
-    function toggleStage(n){
-      const el = document.getElementById('stage-'+n);
-      if(!el) return;
-      el.classList.toggle('show');
+    <main>
+        <!-- Stage 1 -->
+        <div class="roadmap-card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>
+                    <span class="stage-number">1</span>
+                    <span>🧱 HTML & CSS (Foundation)</span>
+                </h2>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="card-content">
+                <div class="learning-path">
+                    <div class="skill-item">
+                        <span class="skill-icon">📚</span>
+                        <span>Web Basics & Client–Server</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">📄</span>
+                        <span>HTML Structure & Forms</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🏷️</span>
+                        <span>Semantic HTML Tags</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🎨</span>
+                        <span>CSS Basics & Box Model</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">📐</span>
+                        <span>Flexbox & Grid</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">📱</span>
+                        <span>Responsive Design</span>
+                    </div>
+                </div>
+                <div class="project-section">
+                    <h4>🎯 Capstone Project:</h4>
+                    <div class="projects-list">
+                        <span class="project-badge">Portfolio Landing Page</span>
+                    </div>
+                    <div class="duration">⏱️ Estimated: 2-3 weeks</div>
+                </div>
+            </div>
+            <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="roadmap-card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>
+                    <span class="stage-number">2</span>
+                    <span>⚙️ JavaScript Basics</span>
+                </h2>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="card-content">
+                <div class="learning-path">
+                    <div class="skill-item">
+                        <span class="skill-icon">📦</span>
+                        <span>Variables, Data Types, Operators</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🔀</span>
+                        <span>Conditions & Loops</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">⚡</span>
+                        <span>Functions & Scope</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🎯</span>
+                        <span>DOM Manipulation</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🖱️</span>
+                        <span>Event Handling</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🔍</span>
+                        <span>Debugging & Console</span>
+                    </div>
+                </div>
+                <div class="project-section">
+                    <h4>🎯 Practice Projects:</h4>
+                    <div class="projects-list">
+                        <span class="project-badge">To-Do App</span>
+                        <span class="project-badge">Quiz App</span>
+                        <span class="project-badge">Calculator</span>
+                    </div>
+                    <div class="duration">⏱️ Estimated: 3-4 weeks</div>
+                </div>
+            </div>
+            <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="roadmap-card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>
+                    <span class="stage-number">3</span>
+                    <span>🚀 Advanced JavaScript</span>
+                </h2>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="card-content">
+                <div class="learning-path">
+                    <div class="skill-item">
+                        <span class="skill-icon">✨</span>
+                        <span>ES6+ Features (Arrow, Destructure)</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">💾</span>
+                        <span>LocalStorage & SessionStorage</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🌐</span>
+                        <span>fetch() API</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">⏳</span>
+                        <span>Async/Await & Promises</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🔌</span>
+                        <span>API Integration & REST</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🎨</span>
+                        <span>Array & Object Methods</span>
+                    </div>
+                </div>
+                <div class="project-section">
+                    <h4>🎯 Real-World Projects:</h4>
+                    <div class="projects-list">
+                        <span class="project-badge">Weather App</span>
+                        <span class="project-badge">Notes App</span>
+                        <span class="project-badge">Movie Search</span>
+                    </div>
+                    <div class="duration">⏱️ Estimated: 3-4 weeks</div>
+                </div>
+            </div>
+            <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Stage 4 -->
+        <div class="roadmap-card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>
+                    <span class="stage-number">4</span>
+                    <span>🛠️ Frontend Tools & Deployment</span>
+                </h2>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="card-content">
+                <div class="learning-path">
+                    <div class="skill-item">
+                        <span class="skill-icon">🎨</span>
+                        <span>Bootstrap Framework</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🎯</span>
+                        <span>Tailwind CSS</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🔀</span>
+                        <span>Git & GitHub</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">📝</span>
+                        <span>GitHub Commits & PR</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🚀</span>
+                        <span>GitHub Pages</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">☁️</span>
+                        <span>Netlify Deployment</span>
+                    </div>
+                </div>
+                <div class="project-section">
+                    <h4>🎯 Hands-On Practice:</h4>
+                    <div class="projects-list">
+                        <span class="project-badge">Deploy Projects Online</span>
+                        <span class="project-badge">GitHub Portfolio</span>
+                    </div>
+                    <div class="duration">⏱️ Estimated: 1-2 weeks</div>
+                </div>
+            </div>
+            <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Stage 5 -->
+        <div class="roadmap-card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>
+                    <span class="stage-number">5</span>
+                    <span>⚛️ React.js</span>
+                </h2>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="card-content">
+                <div class="learning-path">
+                    <div class="skill-item">
+                        <span class="skill-icon">🧩</span>
+                        <span>Components & JSX</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">📦</span>
+                        <span>Props & State</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">⚡</span>
+                        <span>Hooks (useState, useEffect)</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🎯</span>
+                        <span>Event Handling</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🗺️</span>
+                        <span>React Router</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🌐</span>
+                        <span>API Integration</span>
+                    </div>
+                </div>
+                <div class="project-section">
+                    <h4>🎯 React Projects:</h4>
+                    <div class="projects-list">
+                        <span class="project-badge">Movie App</span>
+                        <span class="project-badge">To-Do App v2</span>
+                        <span class="project-badge">E-Commerce Site</span>
+                    </div>
+                    <div class="duration">⏱️ Estimated: 4-6 weeks</div>
+                </div>
+            </div>
+            <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Stage 6 -->
+        <div class="roadmap-card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>
+                    <span class="stage-number">6</span>
+                    <span>🎯 Portfolio & Interview Prep</span>
+                </h2>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="card-content">
+                <div class="learning-path">
+                    <div class="skill-item">
+                        <span class="skill-icon">💼</span>
+                        <span>React Portfolio Website</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">📄</span>
+                        <span>Resume Optimization</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">👨‍💼</span>
+                        <span>LinkedIn Profile Setup</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🎤</span>
+                        <span>Interview Questions</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🧠</span>
+                        <span>DSA (Data Structures)</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🔁</span>
+                        <span>Mock Interviews</span>
+                    </div>
+                </div>
+                <div class="project-section">
+                    <h4>🎯 Portfolio Builders:</h4>
+                    <div class="projects-list">
+                        <span class="project-badge">React Portfolio</span>
+                        <span class="project-badge">3+ Best Projects</span>
+                    </div>
+                    <div class="duration">⏱️ Estimated: 2-3 weeks</div>
+                </div>
+            </div>
+            <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Stage 7 -->
+        <div class="roadmap-card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>
+                    <span class="stage-number">7</span>
+                    <span>💼 Job / Internship / Freelancing</span>
+                </h2>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="card-content">
+                <div class="learning-path">
+                    <div class="skill-item">
+                        <span class="skill-icon">🏢</span>
+                        <span>Apply on LinkedIn</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🌟</span>
+                        <span>Internshala Internships</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">💼</span>
+                        <span>Indeed Job Postings</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">🔨</span>
+                        <span>Fiverr Freelancing</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">💰</span>
+                        <span>Upwork Projects</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-icon">📊</span>
+                        <span>Daily GitHub Commits</span>
+                    </div>
+                </div>
+                <div class="project-section">
+                    <h4>🎯 Action Items:</h4>
+                    <div class="projects-list">
+                        <span class="project-badge">Update Resume</span>
+                        <span class="project-badge">Apply Daily</span>
+                        <span class="project-badge">Network & Connect</span>
+                    </div>
+                    <div class="duration">⏱️ Timeline: Ongoing</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Jaivik Prajapati | Web Development Roadmap</p>
+        <p style="margin-top: 10px; font-size: 0.9em;">Remember: Consistency beats perfection. Build, learn, and ship! 🚀</p>
+    </footer>
+</div>
+
+<script>
+    function toggleCard(headerElement) {
+        const content = headerElement.nextElementSibling;
+        const icon = headerElement.querySelector('.expand-icon');
+        
+        // Close all other cards
+        document.querySelectorAll('.card-content.show').forEach(card => {
+            if (card !== content) {
+                card.classList.remove('show');
+                card.parentElement.querySelector('.expand-icon').classList.remove('expanded');
+            }
+        });
+        
+        // Toggle current card
+        content.classList.toggle('show');
+        icon.classList.toggle('expanded');
     }
-  </script>
+
+    // Expand first card by default
+    window.addEventListener('load', () => {
+        document.querySelector('.card-header').click();
+        updateProgressBar();
+    });
+
+    // Update progress bar based on scroll
+    function updateProgressBar() {
+        const cards = document.querySelectorAll('.roadmap-card');
+        const cardHeight = window.innerHeight;
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        
+        let progress = Math.round((scrollTop / docHeight) * 100);
+        if (progress > 100) progress = 100;
+        
+        document.getElementById('progressBar').style.width = progress + '%';
+    }
+
+    window.addEventListener('scroll', updateProgressBar);
+</script>
+
 </body>
 </html>
