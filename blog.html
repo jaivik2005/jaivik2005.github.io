@@ -17,42 +17,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="modern-styles.css">
     <style>
-<<<<<<< HEAD
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .blog-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .blog-header {
-            text-align: center;
-            color: white;
-            margin-bottom: 50px;
-            padding: 40px 20px;
-        }
-
-        .blog-header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .blog-header p {
-            font-size: 1.2em;
-            opacity: 0.95;
-=======
         .blog-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -91,37 +55,11 @@
         .blog-hero p {
             font-size: 1.2rem;
             color: var(--text-secondary);
->>>>>>> 0b5f08c (add road map)
         }
 
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-<<<<<<< HEAD
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .card-link {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .learning-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .learning-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
-=======
             gap: var(--spacing-xl);
             margin-bottom: var(--spacing-2xl);
         }
@@ -139,25 +77,16 @@
         .learning-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
->>>>>>> 0b5f08c (add road map)
         }
 
         .card-banner {
             height: 200px;
-<<<<<<< HEAD
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-=======
             background: var(--accent-gradient);
->>>>>>> 0b5f08c (add road map)
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4em;
-<<<<<<< HEAD
-            color: white;
-=======
+            font-size: 4rem;
             color: var(--text-primary);
->>>>>>> 0b5f08c (add road map)
             position: relative;
             overflow: hidden;
         }
@@ -185,68 +114,6 @@
         }
 
         .card-content {
-<<<<<<< HEAD
-            padding: 30px 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-content h2 {
-            color: #333;
-            font-size: 1.8em;
-            margin-bottom: 12px;
-            text-decoration: none;
-        }
-
-        .card-content p {
-            color: #666;
-            font-size: 1em;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            flex-grow: 1;
-        }
-
-        .card-meta {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 2px solid #f0f0f0;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #667eea;
-            font-weight: 600;
-            font-size: 0.95em;
-        }
-
-        .meta-icon {
-            font-size: 1.2em;
-        }
-
-        .card-footer {
-            padding: 0 25px 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-explore {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-size: 0.95em;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            flex: 1;
-=======
             padding: var(--spacing-xl);
         }
 
@@ -303,392 +170,39 @@
             align-items: center;
             justify-content: center;
             gap: var(--spacing-xs);
->>>>>>> 0b5f08c (add road map)
+            text-decoration: none;
         }
 
         .btn-explore:hover {
             transform: scale(1.05);
-<<<<<<< HEAD
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .arrow-icon {
-            font-size: 1.3em;
-            transition: transform 0.3s ease;
-=======
             box-shadow: 0 8px 20px rgba(0, 245, 255, 0.4);
         }
 
         .arrow-icon {
             transition: var(--transition-normal);
->>>>>>> 0b5f08c (add road map)
         }
 
         .learning-card:hover .arrow-icon {
             transform: translateX(5px);
         }
 
-<<<<<<< HEAD
-        .tags {
-            display: flex;
-            gap: 8px;
-            margin-top: auto;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 5px 12px;
-            background: #f0f0f0;
-            color: #667eea;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-        }
-
-        .footer {
-            text-align: center;
-            color: white;
-            padding: 30px 20px;
-            border-top: 2px solid rgba(255, 255, 255, 0.1);
-            margin-top: 50px;
-        }
-
-        .footer p {
-            font-size: 0.95em;
-            opacity: 0.9;
-        }
-
-        .back-to-home {
-            display: inline-block;
-            margin-bottom: 30px;
-            padding: 12px 25px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid white;
-        }
-
-        .back-to-home:hover {
-            background: white;
-            color: #667eea;
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .blog-header h1 {
-                font-size: 1.8em;
-            }
-
-            .blog-header p {
-                font-size: 1em;
-=======
         @media (max-width: 768px) {
             .blog-container {
                 padding: 0 var(--spacing-md);
->>>>>>> 0b5f08c (add road map)
             }
 
             .cards-grid {
                 grid-template-columns: 1fr;
-<<<<<<< HEAD
-                gap: 20px;
+                gap: var(--spacing-lg);
             }
 
             .card-content h2 {
-                font-size: 1.4em;
-=======
-                gap: var(--spacing-lg);
->>>>>>> 0b5f08c (add road map)
+                font-size: 1.3rem;
             }
 
             .card-banner {
                 height: 150px;
-<<<<<<< HEAD
-                font-size: 3em;
-            }
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            overflow-y: auto;
-        }
-
-        .modal.show {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 20px;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 15px;
-            max-width: 1100px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .modal-header h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-
-        .close-btn {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid white;
-            padding: 8px 16px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .close-btn:hover {
-            background: white;
-            color: #667eea;
-        }
-
-        .modal-body {
-            padding: 40px;
-        }
-
-        .course-cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .course-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            border-left: 5px solid #FF6B6B;
-        }
-
-        .course-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .course-card-header {
-            font-size: 1.3em;
-            font-weight: 700;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .course-card-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            font-weight: bold;
-            color: white;
-            font-size: 0.9em;
-            background: #FF6B6B;
-        }
-
-        .course-card-preview {
-            color: #666;
-            font-size: 0.95em;
-            line-height: 1.5;
-            margin-bottom: 15px;
-            flex-grow: 1;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            line-clamp: 4;
-            -webkit-box-orient: vertical;
-        }
-
-        .course-card-content {
-            display: none;
-            max-height: 500px;
-            overflow-y: auto;
-            margin: 15px 0;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 3px solid #FFD700;
-        }
-
-        .course-card-content.show {
-            display: block;
-        }
-
-        .course-card-content h4 {
-            color: #333;
-            margin-top: 12px;
-            margin-bottom: 8px;
-            font-size: 1.05em;
-        }
-
-        .course-card-content p {
-            color: #555;
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        .course-card-content code {
-            background: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            color: #d63384;
-        }
-
-        .course-card-content pre {
-            background: #2d2d2d;
-            color: #f8f8f2;
-            padding: 12px;
-            border-radius: 6px;
-            overflow-x: auto;
-            margin: 8px 0;
-            font-size: 0.9em;
-        }
-
-        .course-card-content ul, .course-card-content ol {
-            margin-left: 20px;
-            margin-bottom: 10px;
-        }
-
-        .course-card-content li {
-            margin-bottom: 6px;
-            line-height: 1.5;
-        }
-
-        .course-card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
-        }
-
-        .expand-course-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2em;
-            transition: transform 0.3s ease;
-        }
-
-        .expand-course-btn.expanded {
-            transform: rotate(180deg);
-        }
-
-        .interview-box {
-            background: #E3F2FD;
-            border-left: 4px solid #2196F3;
-            padding: 12px;
-            margin: 12px 0;
-            border-radius: 4px;
-            color: #1565c0;
-            font-weight: 500;
-        }
-
-        .code-example {
-            background: #f5f5f5;
-            border: 1px solid #ddd;
-            padding: 12px;
-            border-radius: 6px;
-            margin: 8px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-            overflow-x: auto;
-        }
-
-        .course-tag {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-            background: #FFE5E5;
-            color: #d32f2f;
-        }
-
-        .course-tag.favorite {
-            background: #FFF3E0;
-            color: #f57c00;
-        }
-
-        @media (max-width: 768px) {
-            .modal-content {
-                border-radius: 10px;
-            }
-
-            .modal-body {
-                padding: 20px;
-            }
-
-            .course-cards-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .modal-header {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-
-            .modal-header h1 {
-                font-size: 1.5em;
-=======
                 font-size: 3rem;
->>>>>>> 0b5f08c (add road map)
             }
         }
     </style>
@@ -715,12 +229,6 @@
     </nav>
 
     <div class="blog-container">
-<<<<<<< HEAD
-        <a href="/" class="back-to-home">← Back to Home</a>
-
-        <div class="blog-header">
-            <h1>📚 Learning Resources</h1>
-=======
         <a href="index.html" class="back-link">
             <i class="fas fa-arrow-left"></i>
             Back to Home
@@ -728,51 +236,11 @@
 
         <div class="blog-hero">
             <h1><i class="fas fa-book"></i> Learning Resources</h1>
->>>>>>> 0b5f08c (add road map)
             <p>Master Web Development Step by Step</p>
         </div>
 
         <div class="cards-grid">
             <!-- Roadmap Card -->
-<<<<<<< HEAD
-            <a href="roadmap.html" class="card-link">
-                <div class="learning-card">
-                    <div class="card-banner">
-                        <div class="card-emoji">🗺️</div>
-                    </div>
-                    <div class="card-content">
-                        <h2>🗺️ Road map for Web Development</h2>
-                        <p>A complete step-by-step learning path from HTML & CSS basics all the way to React and landing your first job. Learn the industry-standard technologies and build real-world projects.</p>
-                        <div class="tags">
-                            <span class="tag">Beginner Friendly</span>
-                            <span class="tag">6-12 Months</span>
-                        </div>
-                    </div>
-                    <div class="card-meta">
-                        <div class="meta-item">
-                            <span class="meta-icon">7</span>
-                            <span>Stages</span>
-                        </div>
-                        <div class="meta-item">
-                            <span class="meta-icon">15+</span>
-                            <span>Projects</span>
-                        </div>
-                        <div class="meta-item">
-                            <span class="meta-icon">📈</span>
-                            <span>Progressive</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn-explore">Explore Roadmap <span class="arrow-icon">→</span></button>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="footer">
-            <p>© 2025 Jaivik Prajapati | Learn. Build. Ship. 🚀</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Start with the roadmap to plan your learning journey!</p>
-=======
             <div class="learning-card">
                 <div class="card-banner">
                     <div class="card-emoji">
@@ -929,7 +397,6 @@
                     </a>
                 </div>
             </div>
->>>>>>> 0b5f08c (add road map)
         </div>
     </div>
 
@@ -1000,4 +467,3 @@
     </script>
 </body>
 </html>
-
