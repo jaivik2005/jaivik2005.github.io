@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Git & GitHub – Complete Industry-Level Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🚀 Git & GitHub – Complete Guide (Beginner → Advanced)</h1>
+        <p>From basics to advanced concepts for  developers</p>
+        <button class="theme-toggle" id="theme-toggle">🌙 Dark Mode</button>
+        <img src="https://i0.wp.com/build5nines.com/wp-content/uploads/2018/01/simplified-git-flow.png?resize=1024%2C354&ssl=1" alt="Git Flow Diagram" style="max-width: 100%; margin-top: 20px;">
+    </header>
+
+    <div class="main-content">
+        <div class="sidebar">
+            <h3>Git & GitHub Tutorial
+</h3>
+            <ul>
+                <li><a href="#what-is-git">What is Git?</a></li>
+                <li><a href="#what-is-github">What is GitHub?</a></li>
+                <li><a href="#industry-usage">Industry Usage</a></li>
+                <li><a href="#how-git-works">How Git Works</a></li>
+                <li><a href="#installing-git">Installing Git</a></li>
+                <li><a href="#first-time-config">First-Time Configuration</a></li>
+                <li><a href="#git-repository">Git Repository</a></li>
+                <li><a href="#git-status">Git Status</a></li>
+                <li><a href="#add-files">Add Files</a></li>
+                <li><a href="#commit">Commit</a></li>
+                <li><a href="#git-log">Git Log</a></li>
+                <li><a href="#branching">Branching</a></li>
+                <li><a href="#merge-branch">Merge Branch</a></li>
+                <li><a href="#merge-conflict">Merge Conflict</a></li>
+                <li><a href="#github-workflow">GitHub Workflow</a></li>
+                <li><a href="#git-clone">git clone</a></li>
+                <li><a href="#git-pull">git pull</a></li>
+                <li><a href="#git-push">git push</a></li>
+                <li><a href="#git-checkout">git checkout</a></li>
+                <li><a href="#git-merge">git merge</a></li>
+                <li><a href="#git-status-advanced">git status</a></li>
+                <li><a href="#advanced-commands">Advanced Commands</a></li>
+                <li><a href="#comparison-table">Comparison Table</a></li>
+                <li><a href="#final-summary">Final Summary</a></li>
+                <li><a href="#git-ai">Git + AI</a></li>
+                <li><a href="#what-not-to-push">What NOT to Push</a></li>
+                <li><a href="#github-security">GitHub Security</a></li>
+                <li><a href="#best-practices">Best Practices</a></li>
+                <li><a href="#interview-questions">Interview Questions</a></li>
+                <li><a href="#final-truth">Final Truth</a></li>
+            </ul>
+        </div>
+        <div class="container">
+        <div class="card" id="what-is-git">
+            <h2>📌 What is Git?</h2>
+            <p><strong>Git</strong> is a <strong>Distributed Version Control System (DVCS)</strong>.</p>
+            <h3>🔍 Simple meaning</h3>
+            <p>Git helps you:</p>
+            <ul>
+                <li>Track <strong>code changes</strong></li>
+                <li>Go back to <strong>previous versions</strong></li>
+                <li>Work with <strong>teams without conflicts</strong></li>
+                <li>Keep your project <strong>safe & organized</strong></li>
+            </ul>
+            <div class="highlight">
+                💡 Think of Git like: <br>
+                <strong>Google Docs for code</strong>, but offline + super powerful.
+            </div>
+        </div>
+
+        <div class="card" id="what-is-github">
+            <h2>📌 What is GitHub?</h2>
+            <p><strong>GitHub</strong> is a <strong>cloud platform</strong> that hosts Git repositories.</p>
+            <h3>🔍 Git vs GitHub (Very Important)</h3>
+            <table>
+                <tr>
+                    <th>Git</th>
+                    <th>GitHub</th>
+                </tr>
+                <tr>
+                    <td>Tool (software)</td>
+                    <td>Website / platform</td>
+                </tr>
+                <tr>
+                    <td>Works offline</td>
+                    <td>Needs internet</td>
+                </tr>
+                <tr>
+                    <td>Version control</td>
+                    <td>Collaboration + hosting</td>
+                </tr>
+                <tr>
+                    <td>Used via terminal</td>
+                    <td>Used via browser + git</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="card" id="industry-usage">
+            <h2>🏭 Industry Usage (REALITY)</h2>
+            <h3>✅ Where Git is USED (95%+ companies)</h3>
+            <ul>
+                <li>Software Companies</li>
+                <li>Startups</li>
+                <li>Government IT (NIC, ISRO, DRDO)</li>
+                <li>Freelancing</li>
+                <li>Open Source</li>
+                <li>AI / ML / Deep Learning projects</li>
+            </ul>
+            <h3>❌ Where Git is NOT used</h3>
+            <ul>
+                <li>Very small one-person non-technical work</li>
+                <li>MS Excel / Word only jobs</li>
+                <li>Legacy systems (very rare now)</li>
+            </ul>
+            <div class="highlight">
+                👉 <strong>Reality</strong>: <br>
+                If you don't know Git → <strong>No developer job</strong>
+            </div>
+        </div>
+
+        <div class="card" id="how-git-works">
+            <h2>🧠 How Git Works (Internals – Simple)</h2>
+            <img src="https://miro.medium.com/1%2AdiRLm1S5hkVoh5qeArND0Q.png" alt="Git Internals">
+            <img src="https://i.sstatic.net/cZkcV.jpg" alt="Git Areas">
+            <p>Git has <strong>3 main areas</strong>:</p>
+            <ol>
+                <li>🗂️ <strong>Working Directory</strong> – Your files</li>
+                <li>📋 <strong>Staging Area</strong> – Files ready to save</li>
+                <li>🗃️ <strong>Repository</strong> – Saved history (commits)</li>
+            </ol>
+        </div>
+
+        <div class="card" id="installing-git">
+            <h2>🧾 Installing Git</h2>
+            <h3>Windows</h3>
+            <ul>
+                <li>Download Git</li>
+                <li>Git Bash gets installed</li>
+            </ul>
+            <h3>Linux</h3>
+            <pre><code>sudo apt install git</code></pre>
+            <h3>Check installation</h3>
+            <pre><code>git --version</code></pre>
+            <p>📤 Output:</p>
+            <pre><code>git version 2.43.0</code></pre>
+        </div>
+
+        <div class="card" id="first-time-config">
+            <h2>⚙️ First-Time Configuration (MANDATORY)</h2>
+            <pre><code>git config --global user.name "Your Name"
+git config --global user.email "youremail@gmail.com"</code></pre>
+            <p>Check:</p>
+            <pre><code>git config --list</code></pre>
+            <p>📤 Output:</p>
+            <pre><code>user.name=Your Name
+user.email=youremail@gmail.com</code></pre>
+        </div>
+
+        <div class="card" id="git-repository">
+            <h2>📁 Git Repository (Repo)</h2>
+            <p>A <strong>repository</strong> = project + history</p>
+            <h3>Create new repo</h3>
+            <pre><code>git init</code></pre>
+            <p>📤 Output:</p>
+            <pre><code>Initialized empty Git repository in /project/.git/</code></pre>
+        </div>
+
+        <div class="card" id="git-status">
+            <h2>📌 Git Status (MOST USED COMMAND)</h2>
+            <pre><code>git status</code></pre>
+            <p>📤 Output:</p>
+            <pre><code>On branch main
+Untracked files:
+  index.html</code></pre>
+            <p>👉 Means: Git sees file but not tracking yet</p>
+        </div>
+
+        <div class="card" id="add-files">
+            <h2>➕ Add Files (Staging)</h2>
+            <h3>Add single file</h3>
+            <pre><code>git add index.html</code></pre>
+            <h3>Add all files (VERY COMMON)</h3>
+            <pre><code>git add .</code></pre>
+        </div>
+
+        <div class="card" id="commit">
+            <h2>💾 Commit (SAVE POINT)</h2>
+            <pre><code>git commit -m "Initial commit"</code></pre>
+            <p>📤 Output:</p>
+            <pre><code>[main 95bfa60] Initial commit
+ 1 file changed, 20 insertions(+)</code></pre>
+            <p>📌 <strong>Commit = snapshot of your project</strong></p>
+        </div>
+
+        <div class="card" id="git-log">
+            <h2>📜 Git Log (History)</h2>
+            <pre><code>git log</code></pre>
+            <p>📤 Output:</p>
+            <pre><code>commit 95bfa60
+Author: Jaivik
+Date: Today
+    Initial commit</code></pre>
+        </div>
+
+        <div class="card" id="branching">
+            <h2>🌿 Branching </h2>
+            <img src="https://nvie.com/img/git-model%402x.png" alt="Git Branching Model">
+            <img src="https://media.brntn.me/01-version-control_gitflow.drawio.png" alt="Git Flow">
+            <h3>Why branches?</h3>
+            <ul>
+                <li>Safe experiments</li>
+                <li>Multiple developers</li>
+                <li>No breaking main code</li>
+            </ul>
+            <h3>Create branch</h3>
+            <pre><code>git branch feature-login</code></pre>
+            <h3>Switch branch</h3>
+            <pre><code>git checkout feature-login</code></pre>
+            <p>OR modern:</p>
+            <pre><code>git switch feature-login</code></pre>
+        </div>
+
+        <div class="card" id="merge-branch">
+            <h2>🔀 Merge Branch</h2>
+            <pre><code>git checkout main
+git merge feature-login</code></pre>
+            <p>📤 Output:</p>
+            <pre><code>Updating 95bfa60..a12c9d3
+Fast-forward</code></pre>
+        </div>
+
+        <div class="card" id="merge-conflict">
+            <h2>⚠️ Merge Conflict (REAL LIFE)</h2>
+            <p>When two people edit same line.</p>
+            <p>Git shows:</p>
+            <pre><code>CONFLICT (content): Merge conflict in index.html</code></pre>
+            <p>You manually fix → add → commit</p>
+        </div>
+
+        <div class="card" id="github-workflow">
+            <h2>☁️ GitHub Workflow </h2>
+            <img src="https://biostats-r.github.io/biostats/github/Pics/fork_branch_tutorial/1_workflow3.png" alt="GitHub Workflow">
+            <img src="https://www.researchgate.net/publication/326295010/figure/fig1/AS%3A646795940069388%401531219577548/GitHub-Pull-request-flow.png" alt="Pull Request Flow">
+            <h3>Steps:</h3>
+            <ol>
+                <li>Create repo on GitHub</li>
+                <li>Connect local repo</li>
+                <li>Push code</li>
+                <li>Pull requests</li>
+                <li>Code review</li>
+                <li>Merge</li>
+            </ol>
+        </div>
+
+        <div class="card" id="git-clone">
+            <h2>1️⃣ git clone — Copy a Repository</h2>
+            <h3>📌 What it does</h3>
+            <p>Creates a <strong>local copy</strong> of a remote GitHub repository on your computer.</p>
+            <p>👉 Used when:</p>
+            <ul>
+                <li>Joining a new project</li>
+                <li>Downloading an open-source project</li>
+                <li>Starting work on an existing repo</li>
+            </ul>
+            <h3>🧾 Syntax</h3>
+            <pre><code>git clone <repository-url></code></pre>
+            <h3>✅ Example</h3>
+            <pre><code>git clone https://github.com/user/sample-project.git</code></pre>
+            <h3>📤 Output</h3>
+            <pre><code>Cloning into 'sample-project'...
+remote: Enumerating objects: 45, done.
+remote: Counting objects: 100% (45/45), done.
+remote: Compressing objects: 100% (30/30), done.
+Receiving objects: 100% (45/45), 120.45 KiB | 500.00 KiB/s, done.</code></pre>
+            <h3>📁 Result</h3>
+            <p>A new folder is created:</p>
+            <pre><code>sample-project/</code></pre>
+            <h3>🏭 Industry Note</h3>
+            <ul>
+                <li>First command used by <strong>new developers</strong></li>
+                <li>Used <strong>once per project</strong></li>
+            </ul>
+        </div>
+
+        <div class="card" id="git-pull">
+            <h2>2️⃣ git pull — Get Latest Updates</h2>
+            <h3>📌 What it does</h3>
+            <p>Fetches <strong>latest changes from remote repo</strong> and <strong>merges them</strong> into your local branch.</p>
+            <p>👉 Used when:</p>
+            <ul>
+                <li>Team members pushed new code</li>
+                <li>Before starting work (VERY IMPORTANT)</li>
+            </ul>
+            <h3>🧾 Syntax</h3>
+            <pre><code>git pull origin main</code></pre>
+            <h3>✅ Example</h3>
+            <pre><code>git pull origin main</code></pre>
+            <h3>📤 Output (No conflicts)</h3>
+            <pre><code>Updating a1b2c3d..e4f5g6h
+Fast-forward
+ index.html | 10 ++++++++++
+ 1 file changed, 10 insertions(+)</code></pre>
+            <h3>⚠️ Output (Conflict case)</h3>
+            <pre><code>CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+            <h3>🏭 Industry Rule</h3>
+            <p>✅ Always run:</p>
+            <pre><code>git pull</code></pre>
+            <p>before coding.</p>
+        </div>
+
+        <div class="card" id="git-push">
+            <h2>3️⃣ git push — Send Your Code</h2>
+            <h3>📌 What it does</h3>
+            <p>Uploads your <strong>local commits</strong> to the <strong>remote repository (GitHub)</strong>.</p>
+            <p>👉 Used when:</p>
+            <ul>
+                <li>You finish a feature</li>
+                <li>You want others to see your code</li>
+            </ul>
+            <h3>🧾 Syntax</h3>
+            <pre><code>git push origin main</code></pre>
+            <h3>✅ Example</h3>
+            <pre><code>git push origin main</code></pre>
+            <h3>📤 Output</h3>
+            <pre><code>Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 345 bytes | 345.00 KiB/s, done.
+To https://github.com/user/sample-project.git
+   a1b2c3d..e4f5g6h  main -> main</code></pre>
+            <h3>🏭 Industry Note</h3>
+            <ul>
+                <li>Juniors push → Seniors review (via Pull Request)</li>
+                <li>Direct push to <code>main</code> often <strong>blocked</strong></li>
+            </ul>
+        </div>
+
+        <div class="card" id="git-checkout">
+            <h2>4️⃣ git checkout — Switch Branch</h2>
+            <h3>📌 What it does</h3>
+            <p>Moves you from <strong>one branch to another</strong>.</p>
+            <p>👉 Used when:</p>
+            <ul>
+                <li>Working on features</li>
+                <li>Fixing bugs</li>
+                <li>Switching context</li>
+            </ul>
+            <h3>🧾 Syntax</h3>
+            <pre><code>git checkout <branch-name></code></pre>
+            <h3>✅ Example</h3>
+            <pre><code>git checkout feature-login</code></pre>
+            <h3>📤 Output</h3>
+            <pre><code>Switched to branch 'feature-login'</code></pre>
+            <h3>📌 Create + switch (older style)</h3>
+            <pre><code>git checkout -b feature-dashboard</code></pre>
+            <p>📤 Output:</p>
+            <pre><code>Switched to a new branch 'feature-dashboard'</code></pre>
+            <h3>🏭 Industry Rule</h3>
+            <p>❌ Never work directly on <code>main</code><br>✅ Always use feature branches</p>
+        </div>
+
+        <div class="card" id="git-merge">
+            <h2>5️⃣ git merge — Combine Code</h2>
+            <h3>📌 What it does</h3>
+            <p>Combines changes from <strong>one branch into another</strong>.</p>
+            <p>👉 Used when:</p>
+            <ul>
+                <li>Feature is complete</li>
+                <li>Code is reviewed</li>
+            </ul>
+            <h3>🧾 Syntax</h3>
+            <pre><code>git merge <branch-name></code></pre>
+            <h3>✅ Example</h3>
+            <pre><code>git checkout main
+git merge feature-login</code></pre>
+            <h3>📤 Output (Success)</h3>
+            <pre><code>Updating a1b2c3d..z9y8x7w
+Fast-forward
+ login.html | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)</code></pre>
+            <h3>⚠️ Output (Conflict)</h3>
+            <pre><code>CONFLICT (content): Merge conflict in login.html</code></pre>
+            <h3>🏭 Industry Use</h3>
+            <ul>
+                <li>Usually done via <strong>Pull Requests</strong></li>
+                <li>Manual merges only in small teams</li>
+            </ul>
+        </div>
+
+        <div class="card" id="git-status-advanced">
+            <h2>6️⃣ git status — Check Current State (MOST USED)</h2>
+            <h3>📌 What it does</h3>
+            <p>Shows:</p>
+            <ul>
+                <li>Current branch</li>
+                <li>Modified files</li>
+                <li>Staged files</li>
+                <li>Untracked files</li>
+            </ul>
+            <p>👉 Used <strong>multiple times every day</strong></p>
+            <h3>🧾 Syntax</h3>
+            <pre><code>git status</code></pre>
+            <h3>✅ Example Output (New file)</h3>
+            <pre><code>On branch main
+Untracked files:
+  index.html</code></pre>
+            <h3>✅ Output (Modified file)</h3>
+            <pre><code>Changes not staged for commit:
+  modified: index.html</code></pre>
+            <h3>✅ Output (Staged file)</h3>
+            <pre><code>Changes to be committed:
+  modified: index.html</code></pre>
+            <h3>🏭 Industry Truth</h3>
+            <p>If confused → run:</p>
+            <pre><code>git status</code></pre>
+        </div>
+
+        <div class="card" id="advanced-commands">
+            <h2>🔧 Advanced Git Commands (Industry / Senior Level)</h2>
+            <div class="highlight">
+                <strong>⚠️ Important</strong><br>
+                These commands are <strong>NOT used daily</strong><br>
+                Mostly used by <strong>experienced developers</strong><br>
+                Knowing <strong>what they do</strong> is more important than using them daily
+            </div>
+            <h3>1️⃣ git rebase — Rewrite Commit History</h3>
+            <h4>📌 What it does</h4>
+            <p>Moves your commits <strong>on top of another branch</strong>, creating a <strong>clean, straight history</strong>.</p>
+            <p>👉 Think of it as:</p>
+            <p><strong>"Replay my work as if it was done after the latest code."</strong></p>
+            <h4>🧠 Why it exists</h4>
+            <p><code>git merge</code> creates <strong>extra merge commits</strong><br><code>git rebase</code> keeps history <strong>clean & linear</strong></p>
+            <img src="https://wac-cdn.atlassian.com/dam/jcr%3A1896adb1-5d49-419a-9b50-3a36adac186c/09.svg?cdnVersion=3140" alt="Git Rebase Diagram" style="max-width: 100%; margin: 10px 0;">
+            <h4>🧾 Syntax</h4>
+            <pre><code>git rebase <branch-name></code></pre>
+            <h4>✅ Example Scenario</h4>
+            <p>You are on <code>feature-login</code><br><code>main</code> has new commits<br>You want latest <code>main</code> before merging</p>
+            <pre><code>git checkout feature-login
+git rebase main</code></pre>
+            <h4>📤 Output</h4>
+            <pre><code>First, rewinding head to replay your work on top of it...
+Applying: Add login page
+Applying: Fix login validation</code></pre>
+            <h4>🏭 Industry Usage</h4>
+            <ul>
+                <li>✅ Used <strong>before PR merge</strong></li>
+                <li>✅ Used to keep history clean</li>
+                <li>❌ NOT used on shared/public branches</li>
+            </ul>
+            <h4>❌ When NOT to use</h4>
+            <pre><code>Never rebase commits that are already pushed and shared</code></pre>
+        </div>
+
+        <div class="card">
+            <h3>2️⃣ git cherry-pick — Pick One Commit Only</h3>
+            <h4>📌 What it does</h4>
+            <p>Copies <strong>ONE specific commit</strong> from another branch into your current branch.</p>
+            <p>👉 Used when:</p>
+            <ul>
+                <li>You want <strong>one fix</strong>, not full branch</li>
+                <li>Hotfix needed urgently</li>
+            </ul>
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220302150549/AfterCherryPick.jpg" alt="Git Cherry-Pick Diagram" style="max-width: 100%; margin: 10px 0;">
+            <h4>🧾 Syntax</h4>
+            <pre><code>git cherry-pick <commit-hash></code></pre>
+            <h4>✅ Example Scenario</h4>
+            <p>Bug fix exists in <code>feature-bugfix</code><br>You want only that fix in <code>main</code></p>
+            <pre><code>git checkout main
+git cherry-pick a1b2c3d</code></pre>
+            <h4>📤 Output</h4>
+            <pre><code>[main d4e5f6g] Fix login crash
+ Date: Tue Jan 10 10:30:00 2025
+ 1 file changed, 5 insertions(+)</code></pre>
+            <h4>🏭 Industry Usage</h4>
+            <ul>
+                <li>✅ Hotfixes</li>
+                <li>✅ Emergency patches</li>
+                <li>❌ Not for large features</li>
+            </ul>
+            <h4>🧠 Easy analogy</h4>
+            <p>Like <strong>copy-paste one paragraph</strong>, not whole chapter</p>
+        </div>
+
+        <div class="card">
+            <h3>3️⃣ git stash pop — Temporary Save & Restore</h3>
+            <h4>📌 What it does</h4>
+            <p>Temporarily <strong>hides your uncommitted changes</strong>, then restores them later.</p>
+            <p>👉 Used when:</p>
+            <ul>
+                <li>You need to switch branch urgently</li>
+                <li>Work is incomplete</li>
+            </ul>
+            <img src="https://miro.medium.com/v2/resize%3Afit%3A1400/1%2AXurNAi3h2jpD67Pq2OgmrQ%402x.png" alt="Git Stash Diagram" style="max-width: 100%; margin: 10px 0;">
+            <h4>🧾 Related Commands</h4>
+            <pre><code>git stash        # save changes
+git stash list   # view saved changes
+git stash pop    # restore & delete stash</code></pre>
+            <h4>✅ Example Scenario</h4>
+            <p>You are coding → urgent bug fix comes</p>
+            <pre><code>git stash</code></pre>
+            <p>📤 Output:</p>
+            <pre><code>Saved working directory and index state WIP on main</code></pre>
+            <p>Switch branch, fix bug, then return:</p>
+            <pre><code>git stash pop</code></pre>
+            <p>📤 Output:</p>
+            <pre><code>On branch main
+Changes restored from stash</code></pre>
+            <h4>🏭 Industry Usage</h4>
+            <ul>
+                <li>✅ Daily in real projects</li>
+                <li>✅ Very useful</li>
+                <li>❌ Not a replacement for commit</li>
+            </ul>
+            <h4>🧠 Easy analogy</h4>
+            <p>Like <strong>keeping your books in bag temporarily</strong></p>
+        </div>
+
+        <div class="card">
+            <h3>4️⃣ git bisect — Find Bug Automatically 🔍</h3>
+            <h4>📌 What it does</h4>
+            <p>Uses <strong>binary search</strong> to find <strong>which commit introduced a bug</strong>.</p>
+            <p>👉 Best for:</p>
+            <ul>
+                <li>Large projects</li>
+                <li>Old bugs</li>
+                <li>Unknown breaking change</li>
+            </ul>
+            <img src="https://belev.dev/static/3f8cc369ca0c0b0e8c8c1bb864becd34/a6c62/git-bisect.jpg" alt="Git Bisect Diagram" style="max-width: 100%; margin: 10px 0;">
+            <h4>🧾 Syntax Flow</h4>
+            <pre><code>git bisect start
+git bisect bad
+git bisect good <commit></code></pre>
+            <h4>✅ Example Scenario</h4>
+            <p>Current code is broken<br>Old commit worked</p>
+            <pre><code>git bisect start
+git bisect bad
+git bisect good a1b2c3d</code></pre>
+            <h4>📤 Output</h4>
+            <p>Git automatically switches commits until bug found:</p>
+            <pre><code>a9f8e7d is the first bad commit</code></pre>
+            <h4>🏭 Industry Usage</h4>
+            <ul>
+                <li>✅ Debugging production issues</li>
+                <li>✅ Used by senior engineers</li>
+                <li>❌ Rare for beginners</li>
+            </ul>
+            <h4>🧠 Easy analogy</h4>
+            <p>Like <strong>finding one bad question</strong> in 100-page exam using divide & conquer</p>
+        </div>
+
+        <div class="card" id="comparison-table">
+            <h2>🧠 Comparison Table (Very Important)</h2>
+            <table>
+                <tr>
+                    <th>Command</th>
+                    <th>Purpose</th>
+                    <th>Used By</th>
+                </tr>
+                <tr>
+                    <td><code>git rebase</code></td>
+                    <td>Clean history</td>
+                    <td>Senior devs</td>
+                </tr>
+                <tr>
+                    <td><code>git cherry-pick</code></td>
+                    <td>One commit</td>
+                    <td>Mid/Senior</td>
+                </tr>
+                <tr>
+                    <td><code>git stash pop</code></td>
+                    <td>Temp save</td>
+                    <td>Everyone</td>
+                </tr>
+                <tr>
+                    <td><code>git bisect</code></td>
+                    <td>Find bug commit</td>
+                    <td>Senior devs</td>
+                </tr>
+            </table>
+            <h3>❗ Industry Warnings (READ THIS)</h3>
+            <ul>
+                <li>🚫 Don't rebase shared branches</li>
+                <li>🚫 Don't cherry-pick large features</li>
+                <li>🚫 Don't stash for long time</li>
+                <li>🚫 Don't bisect without tests</li>
+            </ul>
+            <h3>🎯 One-Line Industry Truth</h3>
+            <div class="highlight">
+                <strong>You don't use these daily — but when you need them, they save HOURS or DAYS.</strong>
+            </div>
+        </div>
+
+        <div class="card" id="final-summary">
+            <h2>🧠 Final Summary Table </h2>
+            <table>
+                <tr>
+                    <th>Command</th>
+                    <th>Real Meaning</th>
+                    <th>Frequency</th>
+                </tr>
+                <tr>
+                    <td><code>git clone</code></td>
+                    <td>Copy project</td>
+                    <td>One time</td>
+                </tr>
+                <tr>
+                    <td><code>git pull</code></td>
+                    <td>Get team updates</td>
+                    <td>Daily</td>
+                </tr>
+                <tr>
+                    <td><code>git push</code></td>
+                    <td>Upload your work</td>
+                    <td>Daily</td>
+                </tr>
+                <tr>
+                    <td><code>git checkout</code></td>
+                    <td>Switch branch</td>
+                    <td>Very frequent</td>
+                </tr>
+                <tr>
+                    <td><code>git merge</code></td>
+                    <td>Combine code</td>
+                    <td>Feature end</td>
+                </tr>
+                <tr>
+                    <td><code>git status</code></td>
+                    <td>Check everything</td>
+                    <td>All the time</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="card" id="git-ai">
+            <h2>🧠 Git + Deep Learning / AI Projects</h2>
+            <img src="https://mlops-guide.github.io/assets/DiagramMLOPs.png" alt="MLOps Diagram">
+            <img src="https://miro.medium.com/v2/resize%3Afit%3A1400/0%2AfKI50-vntJ2xJ6PO.png" alt="AI Git Workflow">
+            <h3>Why Git is CRITICAL in AI?</h3>
+            <ul>
+                <li>Dataset versioning</li>
+                <li>Model experiments</li>
+                <li>Reproducibility</li>
+                <li>Team research</li>
+            </ul>
+            <h3>Typical AI Repo</h3>
+            <pre><code>project/
+ ├── data/
+ ├── notebooks/
+ ├── models/
+ ├── src/
+ ├── requirements.txt
+ └── README.md</code></pre>
+        </div>
+
+        <div class="card" id="what-not-to-push">
+            <h2>⚠️ What NOT to Push (Industry Rule)</h2>
+            <p>Add <code>.gitignore</code></p>
+            <pre><code>node_modules/
+.env
+__pycache__/
+data/
+models/</code></pre>
+        </div>
+
+        <div class="card" id="github-security">
+            <h2>🔐 GitHub Security</h2>
+            <ul>
+                <li>Never push passwords</li>
+                <li>Use <code>.env</code></li>
+                <li>Use GitHub secrets</li>
+                <li>Use SSH keys (preferred)</li>
+            </ul>
+        </div>
+
+        <div class="card" id="best-practices">
+            <h2>🧑‍💼 Industry Best Practices</h2>
+            <ul>
+                <li>✔ Small commits</li>
+                <li>✔ Clear commit messages</li>
+                <li>✔ Feature branches</li>
+                <li>✔ Pull requests</li>
+                <li>✔ Code review</li>
+                <li>✔ CI/CD integration</li>
+            </ul>
+        </div>
+
+        <div class="card" id="interview-questions">
+            <h2>🧠 Interview Questions (REAL)</h2>
+            <p><strong>Q: Git vs GitHub?</strong><br>Git is tool, GitHub is platform</p>
+            <p><strong>Q: What is commit?</strong><br>Snapshot of project</p>
+            <p><strong>Q: Why branch?</strong><br>Parallel development</p>
+        </div>
+
+        <div class="card" id="final-truth">
+            <h2>🎯 Final Truth (VERY IMPORTANT)</h2>
+            <div class="highlight">
+                <strong>Git is NOT optional</strong><br>
+                <strong>GitHub is your developer identity</strong>
+            </div>
+             </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Git & GitHub Guide by Jaivik Prajapati. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-theme');
+            themeToggle.textContent = '☀️ Light Mode';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            themeToggle.textContent = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+        });
+    </script>
+</body>
+</html>
