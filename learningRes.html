@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- External Styles -->
-    <link rel="stylesheet" href="modern-styles.css">
-    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="css/modern-styles.css">
+    <link rel="stylesheet" href="css/chatbot.css">
 
     <style>
         /* Docs Specific Theme overrides to get that GH Docs / VS Code vibe */
@@ -466,7 +466,7 @@
 
 <body>
 
-    <!-- Mobile Menu Overlay -->
+        <!-- Mobile Menu Overlay -->
     <div class="nav-menu-overlay"></div>
 
     <!-- Navigation -->
@@ -474,12 +474,12 @@
         <div class="nav-container">
             <a href="index.html" class="nav-logo">JP</a>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="blog.html" class="nav-link active">Learning</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
+                <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+                <li><a href="services.html" class="nav-link" data-page="services">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link" data-page="portfolio">Portfolio</a></li>
+                <li><a href="learningRes.html" class="nav-link" data-page="learning">Learning</a></li>
+                <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
             </ul>
             <div class="mobile-menu-toggle">
                 <span></span>
@@ -901,6 +901,39 @@ Hello <br> World
 
     </div>
 
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">JP</h3>
+                    <p>Building the future of web applications with modern design and AI.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links" style="list-style: none; padding: 0;">
+                        <li><a href="index.html" style="color: var(--text-secondary); text-decoration: none;">Home</a></li>
+                        <li><a href="portfolio.html" style="color: var(--text-secondary); text-decoration: none;">Projects</a></li>
+                        <li><a href="learningRes.html" style="color: var(--text-secondary); text-decoration: none;">Learning Resources</a></li>
+                        <li><a href="contact.html" style="color: var(--text-secondary); text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div class="social-links" style="margin-top: 10px;">
+                        <a href="https://www.linkedin.com/in/jaivik-prajapati-115362284" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/jaivik2005" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/jaivik_2005" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:jaivikprajapati82@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom" style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); color: var(--text-muted);">
+                <p>&copy; 2025 Jaivik Prajapati. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Initialization Scripts -->
     <script>
         // Sidebar Topic Data
@@ -1070,7 +1103,7 @@ Hello <br> World
 
     <!-- Scripts for CodeMentor AI -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="chatbot.js"></script>
+    <script src="js/chatbot.js"></script>
 </body>
 
 </html>

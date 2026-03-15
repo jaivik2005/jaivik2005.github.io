@@ -1,61 +1,72 @@
-<p align="center">
-  <img src="https://avatars.githubusercontent.com/jaivik2005" width="180" style="border-radius:50%" />
-</p>
+# Jaivik Prajapati - Personal Portfolio Website
 
-<h1 align="center">Jaivik Prajapati</h1>
-<h3 align="center">Web Developer | MERN Stack | AI + Web</h3>
+A modern and professional developer portfolio website that highlights my projects, technical skills, and educational journey. Beyond a traditional portfolio, this platform features an interactive coding environment, comprehensive learning resource modules, and an integrated AI coding assistant designed to help users learn web development.
 
-<p align="center">
-  <a href="http://jaivik.xyz/" target="_blank">🌐 Portfolio</a> •
-  <a href="https://www.linkedin.com/in/jaivik-prajapati-115362284" target="_blank">LinkedIn</a> •
-  <a href="https://github.com/jaivik2005" target="_blank">GitHub</a>
-</p>
+## 🚀 Features
 
----
+- **Responsive Modern UI**: Built with a sleek, dark-themed aesthetic that adapts flawlessly across desktops, tablets, and mobile devices.
+- **Interactive 3D Elements**: Uses custom floating animations and magnetic hover-tilt effects to deliver a premium user experience.
+- **Learning Resources Module**: A dedicated, GitHub Docs-inspired section providing structured notes and tutorials on Web Development.
+- **CodeMentor AI Chatbot**: A custom-built, floating ChatGPT-style assistant capable of formatting markdown and natively rendering code blocks to answer programming questions.
+- **Interactive Code Playgrounds**: Embedded live HTML/CSS/JS text areas giving users the ability to run external code directly inside the browser.
+- **Multi-Page Architecture**: A fully linked, clean directory structure optimized for seamless navigation and smooth user flows.
 
-## 👨‍💻 About Me
-🎓 B.E. Computer Engineering (3rd Year)  
-🏫 Birla Vishwakarma Mahavidyalaya  
-🚀 Passionate about **Web Development, MERN Stack & AI Integration**
+## 💻 Tech Stack
 
----
+- **HTML5**: Semantic tags and clean DOM structure.
+- **CSS3**: Custom vanilla CSS variables, animations, and Grid/Flexbox layouts without heavy framework bloat.
+- **JavaScript**: Modular vanilla JS for interactive 3D components, live code execution, and conversational AI logic.
+- **Marked.js**: Markdown parsing engine utilized by the AI Chatbot.
+- **GitHub Pages**: Fully prepared and optimized for static deployment.
 
-## 🛠️ Tech Stack
-**Frontend:** HTML, CSS, JavaScript  
-**Backend:** Node.js, PHP  
-**Database:** MongoDB  
-**Languages:** C, C++, Java  
-**Tools:** VS Code, Linux  
+## 📂 Project Structure
 
----
+The repository is neatly organized to separate assets across distinct concerns:
 
-## 📌 Portfolio Website
-🔗 **Live Demo:**  
-👉 http://jaivik.xyz/
+```text
+├── css/
+│   ├── modern-styles.css    # Core design system and global variables
+│   ├── styles.css           # Supplemental element styling
+│   └── chatbot.css          # Floating AI Assistant styles
+├── js/
+│   ├── living_icons.js      # 3D tilt effects and floating animations
+│   └── chatbot.js           # Conversational AI logic and markdown formatting
+├── assets/                  # Images and static media
+├── index.html               # Homepage and Developer Profile
+├── about.html               # Personal journey and philosophy
+├── portfolio.html           # Project showcase gallery
+├── services.html            # Expertise and offerings
+├── contact.html             # Contact information and forms
+├── fullStack.html           # 24-Week Interactive Cohort Timeline
+└── learningRes.html         # Learning Hub, Live Playgrounds, CodeMentor AI
+```
 
----
+## 🌐 Live Website
 
-## 📊 GitHub Stats
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=jaivik2005&show_icons=true&theme=tokyonight" />
-</p>
+*Repository is deployment-ready for GitHub Pages!*
 
----
+**Live Link**: [Insert GitHub Pages URL Here]
 
-## 🔥 GitHub Streak
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=jaivik2005&theme=tokyonight" />
-</p>
+## 🏃 How to Run Locally
 
----
+If you'd like to extend this portfolio or test the CodeMentor AI integrations locally:
 
-## 🔗 Connect With Me
-- 📧 Email: **jaivikprajapati82@gmail.com**
-- 💼 LinkedIn: https://www.linkedin.com/in/jaivik-prajapati-115362284
-- 📸 Instagram: **jaivik_2005**
-- 🐦 Twitter/X: **jaivik2005**
-- 💻 LeetCode: **jaivik_2005**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/jaivik2005/jaivik2005.github.io.git
+   ```
+2. Navigate into the directory:
+   ```bash
+   cd jaivik2005.github.io
+   ```
+3. Open `index.html` in any modern browser, or use a local development server like VS Code Live Server or python:
+   ```bash
+   python3 -m http.server 8000
+   ```
+   Navigate to `http://localhost:8000/index.html`.
 
----
+## 👨‍💻 Author
 
-⭐ _If you like my portfolio, give this repo a star!_
+**Jaivik Prajapati**  
+*MERN Stack Developer & AI Enthusiast*  
+[LinkedIn](https://www.linkedin.com/in/jaivik-prajapati-115362284) | [GitHub](https://github.com/jaivik2005)
