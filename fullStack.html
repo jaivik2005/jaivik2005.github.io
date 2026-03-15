@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Stack Roadmap 🚀</title>
+    <meta name="description" content="Complete Full Stack Development Roadmap from core foundations to advanced system design and AI integration.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="modern-styles.css">
+    
+    <style>
+        :root {
+            --bg-dark: #09090b;
+            --card-bg: #18181b;
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+            
+            /* Level Colors */
+            --l0: #ef4444; /* Red */
+            --l1: #f97316; /* Orange */
+            --l2: #eab308; /* Yellow */
+            --l3: #84cc16; /* Lime */
+            --l4: #22c55e; /* Green */
+            --l5: #06b6d4; /* Cyan */
+            --l6: #3b82f6; /* Blue */
+            --l7: #8b5cf6; /* Violet */
+            --l8: #d946ef; /* Fuchsia */
+            --l9: #f43f5e; /* Rose */
+            --l10: #14b8a6; /* Teal */
+            --l11: #6366f1; /* Indigo */
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.08) 0%, transparent 25%);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Hero Section */
+        .roadmap-hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .roadmap-hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(60px);
+        }
+
+        .main-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(165, 180, 252, 0.3);
+            animation: titleFadeIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1s 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* Timeline Container */
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        /* Connecting Line */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-50%);
+            border-radius: 4px;
+            z-index: 0;
+        }
+        
+        .timeline-progress {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--l0), var(--l5), var(--l11));
+            transform: translateX(-50%);
+            border-radius: 4px;
+            z-index: 0;
+            transition: height 0.5s ease;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Level Cards */
+        .level-card {
+            position: relative;
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+            width: calc(50% - 3rem);
+            z-index: 1;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .level-card:hover {
+            transform: translateY(-5px);
+            background: rgba(24, 24, 27, 0.9);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .left-card {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .right-card {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        /* Beacons */
+        .beacon {
+            position: absolute;
+            top: 3rem;
+            width: 20px;
+            height: 20px;
+            background: var(--bg-dark);
+            border: 4px solid var(--text-muted);
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 0.4s ease;
+        }
+
+        .left-card .beacon {
+            right: -3rem; /* 3rem gap + card half width adjustment not needed since absolute */
+            right: calc(-3rem - 12px); /* Correct spacing calculation */
+        }
+        
+        .right-card .beacon {
+            left: calc(-3rem - 12px);
+        }
+
+        .level-card.active .beacon {
+            border-color: currentColor;
+            box-shadow: 0 0 15px currentColor;
+            transform: scale(1.2);
+            background: currentColor;
+        }
+
+        /* Content Styles */
+        .level-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        .level-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.35rem 0.75rem;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .level-card.active .level-number {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .level-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0;
+            background: linear-gradient(to right, #fff, #a1a1aa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .sub-title {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        
+        .skill-tag.star {
+            border-color: rgba(253, 224, 71, 0.3);
+            background: rgba(253, 224, 71, 0.05);
+        }
+        
+        .skill-tag.star:hover {
+            background: rgba(253, 224, 71, 0.15);
+            box-shadow: 0 0 10px rgba(253, 224, 71, 0.2);
+        }
+        
+        .tag-icon {
+            margin-right: 0.4rem;
+        }
+
+        .quote-box {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 0.75rem;
+            border-left: 3px solid #71717a;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        /* Specific Card Colors */
+        .card-l0 { --theme: var(--l0); }
+        .card-l1 { --theme: var(--l1); }
+        .card-l2 { --theme: var(--l2); }
+        .card-l3 { --theme: var(--l3); }
+        .card-l4 { --theme: var(--l4); }
+        .card-l5 { --theme: var(--l5); }
+        .card-l6 { --theme: var(--l6); }
+        .card-l7 { --theme: var(--l7); }
+        .card-l8 { --theme: var(--l8); }
+        .card-l9 { --theme: var(--l9); }
+        .card-l10 { --theme: var(--l10); }
+        .card-l11 { --theme: var(--l11); }
+
+        .level-card.active {
+            border-color: var(--theme);
+            box-shadow: 0 0 20px rgba(0,0,0,0.3), inset 0 0 20px rgba(255,255,255,0.02);
+        }
+
+        .level-card.active .level-title {
+            background: linear-gradient(to right, #fff, var(--theme));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .level-card.active .quote-box {
+            border-left-color: var(--theme);
+        }
+        
+        .level-card.active .beacon {
+            color: var(--theme);
+        }
+
+        @keyframes titleFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .timeline-line, .timeline-progress {
+                left: 2rem;
+            }
+
+            .level-card {
+                width: calc(100% - 4rem);
+                margin-left: 4rem !important;
+                margin-right: 0 !important;
+            }
+
+            .beacon {
+                left: -2.6rem !important; /* Adjust for line position */
+                right: auto !important;
+            }
+            
+            .roadmap-hero {
+                padding: 6rem 1rem 3rem;
+            }
+            
+            .level-header {
+                flex-direction: column-reverse; /* Put badge above title */
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+        
+        /* Navigation (Inherited/Consistent) */
+        .navbar {
+            padding: 1.5rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu Overlay -->
+    <div class="nav-menu-overlay"></div>
+
+    
+    <!-- Mobile Menu Overlay (Reused) -->
+    <div class="nav-menu-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">JP</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    
+    <!-- Hero -->
+    <section class="roadmap-hero">
+        <h1 class="main-title">Full Stack Web Development</h1>
+        <p class="subtitle">Complete 24-Week Cohort Journey</p>
+    </section>
+
+
+    
+    <!-- Timeline -->
+    <div class="timeline-container">
+        <div class="timeline-line"></div>
+        <div class="timeline-progress"></div>
+
+        <!-- Week 0 -->
+        <div class="level-card card left-card card-l0">
+            <div class="beacon"></div>
+            <div class="level-header">
+                 <div>
+                    <span class="level-number" style="background: var(--l0); color: black;">Week 0</span>
+                </div>
+                <h2 class="level-title" style="background: linear-gradient(to right, #fff, var(--l0)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Kickoff & Onboarding</h2>
+            </div>
+            
+            <div class="sub-section">
+                <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">
+                    Program introduction, setting up development environments, understanding modalities, and preparing for the 24-week journey.
+                </p>
+            </div>
+             <div class="skills-grid">
+                <span class="skill-tag"><i class="fas fa-rocket tag-icon"></i> Orientation</span>
+                <span class="skill-tag"><i class="fas fa-tools tag-icon"></i> Environment Setup</span>
+            </div>
+        </div>
+
+        <!-- M1: Week 1-3 -->
+        <div class="level-card card right-card card-l1">
+            <div class="beacon"></div>
+            <div class="level-header">
+                <div>
+                    <span class="level-number" style="background: var(--l1); color: black;">Week 1-3 • Milestone 1</span>
+                </div>
+                <h2 class="level-title" style="background: linear-gradient(to right, #fff, var(--l1)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Web Foundation</h2>
+            </div>
+            
+            <div class="sub-section">
+                <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">
+                    Learn HTML & CSS to build structured, styled, and responsive web pages with layouts, forms, Flexbox, animations, and modern design principles.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <span class="skill-tag"><i class="fab fa-html5 tag-icon"></i> HTML5</span>
+                <span class="skill-tag"><i class="fab fa-css3-alt tag-icon"></i> CSS3</span>
+                <span class="skill-tag"><i class="fas fa-border-all tag-icon"></i> Flexbox & Grid</span>
+                <span class="skill-tag"><i class="fas fa-mobile-alt tag-icon"></i> Responsive Design</span>
+            </div>
+        </div>
+
+        <!-- M2: Week 4-8 -->
+        <div class="level-card card left-card card-l2">
+            <div class="beacon"></div>
+            <div class="level-header">
+               <div>
+                    <span class="level-number" style="background: var(--l2); color: black;">Week 4-8 • Milestone 2</span>
+                </div>
+                <h2 class="level-title" style="background: linear-gradient(to right, #fff, var(--l2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Core Frontend Dev</h2>
+            </div>
+            
+            <div class="sub-section">
+                <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">
+                    Master JavaScript, DOM, events, local storage, Bootstrap, and responsive design while converting Figma designs into functional, interactive websites.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <span class="skill-tag"><i class="fab fa-js tag-icon"></i> JavaScript ES6+</span>
+                <span class="skill-tag"><i class="fas fa-sitemap tag-icon"></i> DOM Manipulation</span>
+                <span class="skill-tag"><i class="fab fa-bootstrap tag-icon"></i> Bootstrap</span>
+                <span class="skill-tag star"><i class="fab fa-figma tag-icon"></i> Figma to HTML</span>
+            </div>
+        </div>
+
+        <!-- M3: Week 9-12 -->
+        <div class="level-card card right-card card-l3">
+            <div class="beacon"></div>
+            <div class="level-header">
+                <div>
+                    <span class="level-number" style="background: var(--l3); color: black;">Week 9-12 • Milestone 3</span>
+                </div>
+                <h2 class="level-title" style="background: linear-gradient(to right, #fff, var(--l3)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Modern Frontend with React</h2>
+            </div>
+
+            <div class="sub-section">
+                <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">
+                   Build dynamic web apps using React, Redux, and Next.js with API handling, routing, and real-world eCommerce projects.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <span class="skill-tag star"><i class="fab fa-react tag-icon"></i> React.js</span>
+                <span class="skill-tag"><i class="fas fa-project-diagram tag-icon"></i> Redux</span>
+                <span class="skill-tag"><i class="fas fa-bolt tag-icon"></i> Next.js</span>
+                <span class="skill-tag"><i class="fas fa-network-wired tag-icon"></i> API Integration</span>
+            </div>
+        </div>
+
+        <!-- M4: Week 13-17 -->
+        <div class="level-card card left-card card-l4">
+            <div class="beacon"></div>
+            <div class="level-header">
+                <div>
+                    <span class="level-number" style="background: var(--l4); color: black;">Week 13-17 • Milestone 4</span>
+                </div>
+                <h2 class="level-title" style="background: linear-gradient(to right, #fff, var(--l4)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Backend (Node, GenAI)</h2>
+            </div>
+
+            <div class="sub-section">
+                <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">
+                   Build scalable backend systems with Node, Express, and MongoDB, complete with eCommerce admin panel, payment gateway integration, and integrate AI into web apps.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <span class="skill-tag"><i class="fab fa-node-js tag-icon"></i> Node.js & Express</span>
+                <span class="skill-tag"><i class="fas fa-leaf tag-icon"></i> MongoDB</span>
+                <span class="skill-tag star"><i class="fas fa-brain tag-icon"></i> Generative AI</span>
+                <span class="skill-tag"><i class="fas fa-credit-card tag-icon"></i> Payment Gateways</span>
+            </div>
+        </div>
+
+        <!-- M5: Week 18-19 -->
+        <div class="level-card card right-card card-l5">
+            <div class="beacon"></div>
+            <div class="level-header">
+               <div>
+                    <span class="level-number" style="background: var(--l5); color: black;">Week 18-19 • Milestone 5</span>
+                </div>
+                <h2 class="level-title" style="background: linear-gradient(to right, #fff, var(--l5)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Programming with Python</h2>
+            </div>
+
+            <div class="sub-section">
+                <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">
+                    Understand core Python programming, data structures, functions, and OOPs to write clean, scalable, and modular code.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <span class="skill-tag star"><i class="fab fa-python tag-icon"></i> Python Core</span>
+                <span class="skill-tag"><i class="fas fa-cubes tag-icon"></i> OOPs</span>
+                <span class="skill-tag"><i class="fas fa-link tag-icon"></i> Modular Code</span>
+            </div>
+        </div>
+
+        <!-- M6: Week 20-24 -->
+        <div class="level-card card left-card card-l6">
+            <div class="beacon"></div>
+            <div class="level-header">
+                <div>
+                    <span class="level-number" style="background: var(--l6); color: black;">Week 20-24 • Milestone 6</span>
+                </div>
+                <h2 class="level-title" style="background: linear-gradient(to right, #fff, var(--l6)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Data Structures & Algorithms</h2>
+            </div>
+            
+            <div class="sub-section">
+                <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">
+                   Solve problems using arrays, recursion, trees, graphs, and dynamic programming while optimizing for time and space.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <span class="skill-tag"><i class="fas fa-layer-group tag-icon"></i> Arrays & Linked Lists</span>
+                <span class="skill-tag"><i class="fas fa-project-diagram tag-icon"></i> Trees & Graphs</span>
+                <span class="skill-tag star"><i class="fas fa-brain tag-icon"></i> Dynamic Programming</span>
+                <span class="skill-tag"><i class="fas fa-stopwatch tag-icon"></i> Time Complexity</span>
+            </div>
+        </div>
+
+        <!-- Capstone -->
+        <div class="level-card card right-card card-l7" style="margin-bottom: 2rem;">
+            <div class="beacon"></div>
+            <div class="level-header">
+                <div>
+                    <span class="level-number" style="background: var(--l7); color: black;">Program Runway</span>
+                </div>
+                <h2 class="level-title" style="background: linear-gradient(to right, #fff, var(--l7)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Capstone Project</h2>
+            </div>
+
+            <div class="sub-section">
+                <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">
+                    Applying all the skills learned to build, test, and deploy a comprehensive, real-world Full Stack application from scratch.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <span class="skill-tag"><i class="fas fa-rocket tag-icon"></i> Deployment</span>
+                <span class="skill-tag"><i class="fas fa-shield-alt tag-icon"></i> Security</span>
+                <span class="skill-tag"><i class="fas fa-star tag-icon"></i> Portfolio Ready</span>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Jaivik Prajapati. All rights reserved.</p>
+            <p>Built with passion using modern web technologies.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Animations and Interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.level-card');
+            const progressLine = document.querySelector('.timeline-progress');
+            
+            // Intersection Observer for Scroll Animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.classList.add('active');
+                        
+                        // Calculate progress height
+                        // This is a simple approximation. For exact line progress tracking, we'd need scroll event listeners
+                    }
+                });
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            cards.forEach((card, index) => {
+                // Add unique delay/stagger if many appear at once?
+                // Actually intersection observer handles 'when appeared', so no manual stagger needed unless they are all in view.
+                observer.observe(card);
+            });
+
+            // Parallax / Scroll Progress Logic
+            window.addEventListener('scroll', () => {
+                const totalHeight = document.body.scrollHeight - window.innerHeight;
+                const progress = (window.scrollY / totalHeight) * 100;
+                
+                // Update Timeline Progress Height
+                const timelineRect = document.querySelector('.timeline-container').getBoundingClientRect();
+                const startOffset = timelineRect.top + window.scrollY;
+                const currentPos = window.scrollY + (window.innerHeight / 2);
+                
+                let lineLength = currentPos - startOffset;
+                if (lineLength < 0) lineLength = 0;
+                if (lineLength > timelineRect.height) lineLength = timelineRect.height; // Clamp to container
+                
+                progressLine.style.height = `${lineLength}px`;
+            });
+            
+            // Mobile Menu Toggle (Copied from index.html)
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            const navOverlay = document.querySelector('.nav-menu-overlay');
+
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mobileMenuToggle.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    navOverlay.classList.toggle('active');
+                    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+            
+            if (navOverlay) {
+                navOverlay.addEventListener('click', () => {
+                   mobileMenuToggle.classList.remove('active');
+                   navMenu.classList.remove('active');
+                   navOverlay.classList.remove('active');
+                   document.body.style.overflow = '';
+                });
+            }
+        });
+    </script>
+    <!-- Living Icons Experience -->
+    <script type="module" src="living_icons.js" defer></script>
+
+</body>
+</html>

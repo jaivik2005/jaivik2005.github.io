@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1 – Getting Started with HTML & CSS</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- External Styles -->
+    <link rel="stylesheet" href="modern-styles.css">
+    <link rel="stylesheet" href="chatbot.css">
+
+    <style>
+        /* Docs Specific Theme overrides to get that GH Docs / VS Code vibe */
+        :root {
+            --bg-doc: #0d1117;
+            --bg-sidebar: #161b22;
+            --bg-panel: #21262d;
+            --border-doc: #30363d;
+            --text-doc: #c9d1d9;
+            --text-doc-muted: #8b949e;
+            --accent-blue: #58a6ff;
+            --accent-green: #3fb950;
+            --code-bg: #161b22;
+        }
+
+        body {
+            background-color: var(--bg-doc);
+            color: var(--text-doc);
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            /* We will handle scrolling in columns */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Override Navbar for this page */
+        .navbar {
+            background: rgba(13, 17, 23, 0.95);
+            border-bottom: 1px solid var(--border-doc);
+        }
+
+        /* 3-Column Layout */
+        .docs-wrapper {
+            display: flex;
+            height: 100vh;
+            padding-top: 75px;
+            /* Navbar space */
+            box-sizing: border-box;
+        }
+
+        /* 1️⃣ Left Sidebar */
+        .doc-sidebar {
+            width: 280px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-doc);
+            overflow-y: auto;
+            padding: 20px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .sidebar-search {
+            position: relative;
+        }
+
+        .sidebar-search input {
+            width: 100%;
+            padding: 10px 10px 10px 35px;
+            background: var(--bg-doc);
+            border: 1px solid var(--border-doc);
+            border-radius: 6px;
+            color: var(--text-doc);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color var(--transition-fast);
+        }
+
+        .sidebar-search input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .sidebar-search i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-doc-muted);
+        }
+
+        .topic-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .topic-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topic-link {
+            color: var(--text-doc-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            flex: 1;
+            transition: color var(--transition-fast);
+        }
+
+        .topic-link:hover,
+        .topic-link.active {
+            color: var(--accent-blue);
+        }
+
+        .progress-check {
+            color: var(--border-doc);
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+
+        .progress-check.completed {
+            color: var(--accent-green);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background: var(--bg-doc);
+            border-radius: 3px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--accent-green);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* 2️⃣ Main Learning Content */
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px 60px;
+            scroll-behavior: smooth;
+        }
+
+        /* Section hidden toggle */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Content Typography */
+        .content-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-doc);
+        }
+
+        .module-badges {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .badge.html {
+            background: rgba(234, 88, 12, 0.15);
+            color: #f97316;
+            border: 1px solid rgba(234, 88, 12, 0.3);
+        }
+
+        .badge.css {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .badge.level {
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .main-content h1 {
+            font-size: 2.2rem;
+            color: #fff;
+            margin: 40px 0 20px;
+            font-weight: 700;
+        }
+
+        .main-content h2 {
+            font-size: 1.6rem;
+            color: #fff;
+            margin: 30px 0 15px;
+            border-bottom: 1px solid var(--border-doc);
+            padding-bottom: 8px;
+        }
+
+        .main-content h3 {
+            font-size: 1.3rem;
+            margin: 25px 0 10px;
+            color: #e2e8f0;
+        }
+
+        .main-content p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: var(--text-doc);
+        }
+
+        .main-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--bg-panel);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .main-content th,
+        .main-content td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-doc);
+            text-align: left;
+        }
+
+        .main-content th {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        /* Inline Code */
+        .main-content code:not([class]) {
+            background: rgba(110, 118, 129, 0.3);
+            padding: 0.2em 0.4em;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.9em;
+        }
+
+        /* Live Code Editor Component */
+        .live-editor-container {
+            background: var(--bg-sidebar);
+            border: 1px solid var(--border-doc);
+            border-radius: 10px;
+            margin: 30px 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: var(--bg-panel);
+            border-bottom: 1px solid var(--border-doc);
+        }
+
+        .editor-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-doc);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .editor-actions button {
+            background: var(--accent-green);
+            color: #fff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity var(--transition-fast);
+        }
+
+        .editor-actions button:hover {
+            opacity: 0.8;
+        }
+
+        .editor-body {
+            display: flex;
+            height: 350px;
+        }
+
+        .editor-pane,
+        .output-pane {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .editor-pane {
+            border-right: 1px solid var(--border-doc);
+        }
+
+        .code-textarea {
+            flex: 1;
+            background: var(--code-bg);
+            color: #e2e8f0;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95rem;
+            padding: 15px;
+            border: none;
+            resize: none;
+            outline: none;
+            line-height: 1.5;
+        }
+
+        .output-iframe {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #fff;
+            /* Output usually needs white bg */
+        }
+
+        /* Top Nav Toggle (Notes vs Playground) */
+        .mode-toggle {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .mode-btn {
+            background: transparent;
+            color: var(--text-doc-muted);
+            border: 1px solid var(--border-doc);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+
+        .mode-btn.active,
+        .mode-btn:hover {
+            background: var(--bg-panel);
+            color: #fff;
+            border-color: var(--text-doc-muted);
+        }
+
+        /* 3️⃣ Space for floating AI Chat Assistant is now global */
+
+        .playground-container {
+            height: calc(100vh - 200px);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-doc);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .playground-editors {
+            display: flex;
+            height: 50%;
+            border-bottom: 2px solid var(--border-doc);
+        }
+
+        .pg-editor {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid var(--border-doc);
+        }
+
+        .pg-editor:last-child {
+            border-right: none;
+        }
+
+        .pg-label {
+            padding: 5px 15px;
+            background: var(--bg-panel);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-doc-muted);
+            border-bottom: 1px solid var(--border-doc);
+        }
+
+        .pg-output {
+            height: 50%;
+            background: #fff;
+        }
+
+        .pg-output iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 1024px) {
+            /* Adjusted layout */
+        }
+
+        @media (max-width: 768px) {
+            .doc-sidebar {
+                display: none;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .editor-body {
+                flex-direction: column;
+                height: 600px;
+            }
+
+            .editor-pane {
+                border-right: none;
+                border-bottom: 1px solid var(--border-doc);
+            }
+
+            .playground-editors {
+                flex-direction: column;
+            }
+
+            .pg-editor {
+                border-right: none;
+                border-bottom: 1px solid var(--border-doc);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="nav-menu-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">JP</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="blog.html" class="nav-link active">Learning</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Docs Layout -->
+    <div class="docs-wrapper">
+
+        <!-- 1️⃣ Sidebar -->
+        <aside class="doc-sidebar">
+            <div class="sidebar-search">
+                <i class="fas fa-search"></i>
+                <input type="text" id="topic-search" placeholder="Search topics...">
+            </div>
+
+            <div style="margin-top: 10px;">
+                <div
+                    style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-doc-muted); margin-bottom: 5px;">
+                    <span>Module Progress</span>
+                    <span id="progress-text">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="progress-bar"></div>
+                </div>
+            </div>
+
+            <ul class="topic-list" id="topic-list">
+                <!-- Javascript will inject topics here -->
+            </ul>
+        </aside>
+
+        <!-- 2️⃣ Main Learning Content -->
+        <main class="main-content" id="main-content">
+
+            <div class="mode-toggle">
+                <button class="mode-btn active" onclick="switchMode('notes')"><i class="fas fa-book-open"></i> Learning
+                    Notes</button>
+                <button class="mode-btn" onclick="switchMode('playground')"><i class="fas fa-code"></i> Code
+                    Playground</button>
+            </div>
+
+            <!-- Notes Section -->
+            <div id="notes-section" class="content-section active">
+
+                <div class="content-header">
+                    <div class="module-badges">
+                        <span class="badge html"><i class="fab fa-html5"></i> HTML5 – Structure</span>
+                        <span class="badge css"><i class="fab fa-css3-alt"></i> CSS3 – Styling</span>
+                        <span class="badge level"><i class="fas fa-signal"></i> Level – Beginner</span>
+                    </div>
+                    <h1>🚀 Web Development Notes</h1>
+                    <p style="color: var(--text-doc-muted); font-size: 1.2rem;">Module 1 – Getting Started with HTML &
+                        CSS</p>
+                </div>
+
+                <section id="topic-1">
+                    <h2>🧱 HTML – The Skeleton of Your Webpage</h2>
+                    <p>Imagine building a <strong>house</strong>.</p>
+                    <ul>
+                        <li>🧱 <strong>HTML → Structure</strong></li>
+                        <li>🎨 <strong>CSS → Design</strong></li>
+                        <li>⚡ <strong>JavaScript → Functionality</strong></li>
+                    </ul>
+                    <p>HTML provides the <strong>blueprint and structure</strong> of the webpage.</p>
+                </section>
+
+                <section id="topic-2">
+                    <h2>📖 What is HTML?</h2>
+                    <p><strong>HTML = HyperText Markup Language</strong></p>
+                    <p>✔ Used to <strong>structure web pages</strong><br>
+                        ✔ Uses <strong>tags to define elements</strong></p>
+                    <p>HTML is <strong>NOT a programming language</strong>. It is a <strong>markup language</strong>.
+                    </p>
+                </section>
+
+                <section id="topic-3">
+                    <h2>🧩 HTML Tags</h2>
+                    <p>Tags tell the browser <strong>how content should appear</strong>.</p>
+
+                    <div class="live-editor-container">
+                        <div class="editor-header">
+                            <div class="editor-title"><i class="fas fa-code"></i> Try it yourself</div>
+                            <div class="editor-actions">
+                                <button onclick="runCode('editor-1', 'output-1')"><i class="fas fa-play"></i> Run
+                                    Code</button>
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <div class="editor-pane">
+                                <textarea id="editor-1" class="code-textarea">
+<!-- Try editing this paragraph tag -->
+<p>
+Lorem ipsum dolor sit amet consectetur adipisicing elit.
+Provident est animi quaerat.
+</p>
+</textarea>
+                            </div>
+                            <div class="output-pane">
+                                <iframe id="output-1" class="output-iframe"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="topic-4">
+                    <h2>🔹 Self Closing Tags</h2>
+                    <p>Some tags <strong>do not need closing tags</strong>.</p>
+                    <table>
+                        <tr>
+                            <th>Tag</th>
+                            <th>Purpose</th>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;br&gt;</code></td>
+                            <td>Line break</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;hr&gt;</code></td>
+                            <td>Horizontal line</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;img&gt;</code></td>
+                            <td>Image</td>
+                        </tr>
+                    </table>
+
+                    <div class="live-editor-container">
+                        <div class="editor-header">
+                            <div class="editor-title"><i class="fas fa-code"></i> Try it yourself</div>
+                            <div class="editor-actions">
+                                <button onclick="runCode('editor-2', 'output-2')"><i class="fas fa-play"></i> Run
+                                    Code</button>
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <div class="editor-pane">
+                                <textarea id="editor-2" class="code-textarea">
+Hello <br> World
+<hr>
+</textarea>
+                            </div>
+                            <div class="output-pane">
+                                <iframe id="output-2" class="output-iframe"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="topic-5">
+                    <h2>🏗 HTML Page Structure</h2>
+                    <p>Every HTML page follows a <strong>basic template</strong>.</p>
+                    <div class="live-editor-container">
+                        <div class="editor-header">
+                            <div class="editor-title"><i class="fas fa-code"></i> Standard Setup</div>
+                            <div class="editor-actions">
+                                <button onclick="runCode('editor-3', 'output-3')"><i class="fas fa-play"></i> Run
+                                    Code</button>
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <div class="editor-pane">
+                                <textarea id="editor-3" class="code-textarea">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Page</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+</body>
+</html>
+</textarea>
+                            </div>
+                            <div class="output-pane">
+                                <iframe id="output-3" class="output-iframe"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Tag</th>
+                            <th>Purpose</th>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;!DOCTYPE html&gt;</code></td>
+                            <td>Defines HTML5</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;html&gt;</code></td>
+                            <td>Root element</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;head&gt;</code></td>
+                            <td>Meta information</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;body&gt;</code></td>
+                            <td>Visible content</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section id="topic-6">
+                    <h2>🧾 Basic HTML Tags</h2>
+                    <table>
+                        <tr>
+                            <th>Tag</th>
+                            <th>Purpose</th>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;p&gt;</code></td>
+                            <td>Paragraph</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;h1&gt; - &lt;h6&gt;</code></td>
+                            <td>Headings</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;b&gt;</code></td>
+                            <td>Bold</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;strong&gt;</code></td>
+                            <td>Important text</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;i&gt;</code></td>
+                            <td>Italic</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;em&gt;</code></td>
+                            <td>Emphasized text</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section id="topic-7">
+                    <h2>🎨 Introduction to CSS</h2>
+                    <p>HTML provides <strong>content</strong>.<br>CSS provides <strong>design</strong>.</p>
+                    <p>CSS stands for: <code>Cascading Style Sheets</code></p>
+                    <ul>
+                        <li>✔ Colors</li>
+                        <li>✔ Layout</li>
+                        <li>✔ Fonts</li>
+                        <li>✔ Spacing</li>
+                    </ul>
+                </section>
+
+                <section id="topic-8">
+                    <h2>🎯 CSS Selectors</h2>
+                    <p>Selectors tell CSS <strong>which elements to style</strong>.</p>
+
+                    <div class="live-editor-container" style="height: 450px;">
+                        <div class="editor-header">
+                            <div class="editor-title"><i class="fas fa-code"></i> Selectors Example</div>
+                            <div class="editor-actions">
+                                <button onclick="runCode('editor-css-1', 'output-css-1')"><i class="fas fa-play"></i>
+                                    Run Code</button>
+                            </div>
+                        </div>
+                        <div class="editor-body" style="height: 400px;">
+                            <div class="editor-pane">
+                                <textarea id="editor-css-1" class="code-textarea">
+<style>
+  /* Element Selector */
+  p { color: red; }
+  
+  /* Class Selector */
+  .textStyle { color: blue; font-weight: bold;}
+  
+  /* ID Selector */
+  #mainText {
+    color: white;
+    background: black;
+    padding: 10px;
+  }
+</style>
+
+<p>I am a paragraph (Element selector)</p>
+<p class="textStyle">I am blue (Class selector)</p>
+<p id="mainText">I am unique (ID selector)</p>
+</textarea>
+                            </div>
+                            <div class="output-pane">
+                                <iframe id="output-css-1" class="output-iframe"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="topic-9">
+                    <h2>⚡ Flexbox Layout</h2>
+                    <p>Flexbox makes layouts <strong>very easy</strong>.</p>
+
+                    <div class="live-editor-container" style="height: 400px;">
+                        <div class="editor-header">
+                            <div class="editor-title"><i class="fas fa-code"></i> Flexbox</div>
+                            <div class="editor-actions">
+                                <button onclick="runCode('editor-flex', 'output-flex')"><i class="fas fa-play"></i> Run
+                                    Code</button>
+                            </div>
+                        </div>
+                        <div class="editor-body" style="height: 350px;">
+                            <div class="editor-pane">
+                                <textarea id="editor-flex" class="code-textarea">
+<style>
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #eee;
+    padding: 20px;
+    height: 100vh;
+}
+.box {
+    width: 60px; height: 60px;
+    background: tomato;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+</style>
+
+<div class="container">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+</div>
+</textarea>
+                            </div>
+                            <div class="output-pane">
+                                <iframe id="output-flex" class="output-iframe"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="topic-10">
+                    <h2>📦 CSS Box Model</h2>
+                    <p>Every HTML element is treated as a <strong>box</strong>.</p>
+                    <img src="https://www.w3schools.com/css/img_boxmodel.gif" alt="Box model"
+                        style="width: 100%; max-width: 400px; border-radius: 8px;">
+                    <table>
+                        <tr>
+                            <th>Part</th>
+                            <th>Meaning</th>
+                        </tr>
+                        <tr>
+                            <td>Content</td>
+                            <td>Actual text/image</td>
+                        </tr>
+                        <tr>
+                            <td>Padding</td>
+                            <td>Space inside border</td>
+                        </tr>
+                        <tr>
+                            <td>Border</td>
+                            <td>Frame</td>
+                        </tr>
+                        <tr>
+                            <td>Margin</td>
+                            <td>Space outside element</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section id="topic-11" style="margin-top: 50px;">
+                    <h2>🏁 End of Module 1</h2>
+                    <p>You learned: HTML Basics, Tags, CSS Basics, Selectors, Flexbox, and Box Model.</p>
+                </section>
+
+            </div>
+
+            <!-- Playground Section -->
+            <div id="playground-section" class="content-section">
+                <div class="content-header">
+                    <h1><i class="fas fa-laptop-code"></i> Code Playground</h1>
+                    <p style="color: var(--text-doc-muted);">Write HTML, CSS, and JS all in one place and see the output
+                        instantly.</p>
+                </div>
+
+                <div class="playground-container">
+                    <div class="playground-editors">
+                        <div class="pg-editor">
+                            <div class="pg-label">index.html</div>
+                            <textarea id="pg-html"
+                                class="code-textarea"><h1>Hello Playground</h1>&#10;<button onclick="greet()">Click Me</button></textarea>
+                        </div>
+                        <div class="pg-editor">
+                            <div class="pg-label">style.css</div>
+                            <textarea id="pg-css"
+                                class="code-textarea">h1 { color: #8b5cf6; font-family: sans-serif; }</textarea>
+                        </div>
+                        <div class="pg-editor">
+                            <div class="pg-label">script.js</div>
+                            <textarea id="pg-js"
+                                class="code-textarea">function greet() {&#10;  alert('Hello from JS!');&#10;}</textarea>
+                        </div>
+                    </div>
+                    <div class="editor-header" style="border-top: 1px solid var(--border-doc); border-bottom: none;">
+                        <button onclick="runPlayground()"
+                            style="background: var(--accent-green); color: #fff; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: bold;"><i
+                                class="fas fa-play"></i> Run Combined Code</button>
+                    </div>
+                    <div class="pg-output">
+                        <iframe id="pg-output-frame"></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Initialization Scripts -->
+    <script>
+        // Sidebar Topic Data
+        const topics = [
+            { id: "topic-1", title: "Intro to HTML" },
+            { id: "topic-2", title: "What is HTML?" },
+            { id: "topic-3", title: "HTML Tags" },
+            { id: "topic-4", title: "Self Closing Tags" },
+            { id: "topic-5", title: "Page Structure" },
+            { id: "topic-6", title: "Basic HTML Tags" },
+            { id: "topic-7", title: "Intro to CSS" },
+            { id: "topic-8", title: "CSS Selectors" },
+            { id: "topic-9", title: "Flexbox Layout" },
+            { id: "topic-10", title: "CSS Box Model" },
+            { id: "topic-11", title: "End of Module" }
+        ];
+
+        let completedTopics = new Set();
+
+        const topicList = document.getElementById('topic-list');
+
+        function renderTopics(filter = "") {
+            topicList.innerHTML = '';
+            let filtered = topics.filter(t => t.title.toLowerCase().includes(filter.toLowerCase()));
+
+            filtered.forEach(t => {
+                let li = document.createElement('li');
+                li.className = 'topic-item';
+
+                let isCompleted = completedTopics.has(t.id);
+
+                li.innerHTML = `
+                    <i class="fas fa-check-circle progress-check ${isCompleted ? 'completed' : ''}" onclick="toggleCompleteness('${t.id}')"></i>
+                    <a href="#${t.id}" class="topic-link" onclick="scrollToTopic('${t.id}')">${t.title}</a>
+                `;
+                topicList.appendChild(li);
+            });
+            updateProgressBar();
+        }
+
+        // Run initially
+        renderTopics();
+
+        // Search listener
+        document.getElementById('topic-search').addEventListener('input', (e) => {
+            renderTopics(e.target.value);
+        });
+
+        function toggleCompleteness(id) {
+            if (completedTopics.has(id)) completedTopics.delete(id);
+            else completedTopics.add(id);
+            renderTopics(document.getElementById('topic-search').value);
+        }
+
+        function updateProgressBar() {
+            let pct = Math.round((completedTopics.size / topics.length) * 100);
+            document.getElementById('progress-bar').style.width = pct + '%';
+            document.getElementById('progress-text').innerText = pct + '%';
+        }
+
+        function scrollToTopic(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Live Code Editor Logic
+        function runCode(editorId, iframeId) {
+            const code = document.getElementById(editorId).value;
+            const iframe = document.getElementById(iframeId);
+            const doc = iframe.contentDocument || iframe.contentWindow.document;
+
+            doc.open();
+            doc.write(code);
+            doc.close();
+        }
+
+        // Initialize all editors
+        window.onload = () => {
+            ['editor-1', 'editor-2', 'editor-3', 'editor-css-1', 'editor-flex'].forEach((id, idx) => {
+                let frameId = id.replace('editor', 'output');
+                if (document.getElementById(id) && document.getElementById(frameId)) {
+                    runCode(id, frameId);
+                }
+            });
+            runPlayground();
+        };
+
+        // Tab Switcher (Notes vs Playground)
+        function switchMode(mode) {
+            document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+
+            if (mode === 'notes') {
+                document.querySelector('.mode-btn:nth-child(1)').classList.add('active');
+                document.getElementById('notes-section').classList.add('active');
+            } else {
+                document.querySelector('.mode-btn:nth-child(2)').classList.add('active');
+                document.getElementById('playground-section').classList.add('active');
+            }
+        }
+
+        // Playground Logic
+        function runPlayground() {
+            const html = document.getElementById('pg-html').value;
+            const css = document.getElementById('pg-css').value;
+            const js = document.getElementById('pg-js').value;
+
+            const frame = document.getElementById('pg-output-frame');
+            const doc = frame.contentDocument || frame.contentWindow.document;
+
+            const fullDoc = `
+                <html>
+                    <head><style>${css}</style></head>
+                    <body>
+                        ${html}
+                        <script>${js}<\/script>
+                    </body>
+                </html>
+            `;
+
+            doc.open();
+            doc.write(fullDoc);
+            doc.close();
+        }
+
+        // AI Chat is now handled by chatbot.js
+
+        // Mobile Menu toggle (Standard logic)
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenuToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+
+    <!-- CodeMentor AI Chatbot HTML -->
+    <button class="chatbot-toggler" id="chatbot-toggler">
+        <i class="fas fa-robot"></i>
+        <i class="fas fa-times"></i>
+    </button>
+    <div class="chatbot-window" id="chatbot-window">
+        <header class="chatbot-header">
+            <div class="header-info">
+                <i class="fas fa-robot"></i>
+                <h2>CodeMentor AI</h2>
+            </div>
+            <button class="clear-chat-btn" id="clear-chat-btn" title="Clear Chat">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </header>
+        <div class="chatbot-body" id="chatbot-body">
+            <!-- Messages go here -->
+            <div class="chatbot-msg msg-ai">
+                <div class="msg-content">
+                    <p>Hello there! I'm <strong>CodeMentor AI</strong>. How can I help you with web development today?
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-footer">
+            <textarea id="chatbot-input" placeholder="Ask a coding question..." rows="1" required></textarea>
+            <button id="chatbot-send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Scripts for CodeMentor AI -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+
+</html>

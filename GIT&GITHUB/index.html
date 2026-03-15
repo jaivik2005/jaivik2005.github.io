@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git & GitHub – The Professional Guide 🚀</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #09090b;
+            --bg-card: #18181b;
+            --bg-sidebar: #0f172a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --accent: #f05032; /* Git Orange */
+            --accent-glow: rgba(240, 80, 50, 0.4);
+            --github-accent: #8b5cf6; /* GitHub Purple-ish */
+            --border-color: rgba(255, 255, 255, 0.1);
+            --code-bg: #1e1e24;
+            --success: #22c55e;
+            --warning: #fbbf24;
+            --danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #3f3f46;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #52525b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-fx {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(240, 80, 50, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 20%);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .sidebar-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar-logo span {
+            background: linear-gradient(to right, var(--accent), var(--github-accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-list {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 0.25rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            border-left: 2px solid transparent;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .nav-link.active {
+            border-left-color: var(--accent);
+            background: linear-gradient(90deg, rgba(240, 80, 50, 0.1), transparent);
+        }
+
+        /* Main Content */
+        .main {
+            margin-left: 280px;
+            flex: 1;
+            padding: 0 2rem 4rem;
+            max-width: 1200px;
+            width: calc(100% - 280px);
+        }
+
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            scroll-margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--github-accent));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .section-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-card:hover::before {
+            opacity: 1;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+            color: #fff;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Code Blocks */
+        pre {
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        p code, li code {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.85em;
+        }
+
+        .highlight-box {
+            background: rgba(240, 80, 50, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+            color: #ffe4e6;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 0.75rem;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: #fff;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        /* Images */
+        img {
+            max-width: 100%;
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            margin: 1.5rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none;
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--accent);
+            color: white;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            border: none;
+            box-shadow: 0 10px 20px rgba(240, 80, 50, 0.3);
+            z-index: 1000;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 900px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(10px);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main {
+                margin-left: 0;
+                width: 100%;
+                padding: 1rem 1rem 4rem;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-fx"></div>
+
+    <button class="mobile-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="sidebar">
+        <div class="sidebar-logo">
+            <i class="fab fa-git-alt" style="color: var(--accent);"></i>
+            Git<span>Hub</span> Guide
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#git-intro" class="nav-link">Introduction</a></li>
+            <li class="nav-item"><a href="#industry-usage" class="nav-link">Industry Reality</a></li>
+            <li class="nav-item"><a href="#internals" class="nav-link">How Git Works</a></li>
+            <li class="nav-item"><a href="#setup" class="nav-link">Setup & Config</a></li>
+            <li class="nav-item"><a href="#basics" class="nav-link">Basic Commands</a></li>
+            <li class="nav-item"><a href="#branching" class="nav-link">Branching Strategy</a></li>
+            <li class="nav-item"><a href="#github-flow" class="nav-link">GitHub Workflow</a></li>
+            <li class="nav-item"><a href="#collaboration" class="nav-link">Collaboration</a></li>
+            <li class="nav-item"><a href="#ai-ml" class="nav-link">Git for AI/ML</a></li>
+            <li class="nav-item"><a href="#advanced" class="nav-link">Advanced Git</a></li>
+            <li class="nav-item"><a href="#security" class="nav-link">Security & Rules</a></li>
+            <li class="nav-item"><a href="#interview" class="nav-link">Interview Qs</a></li>
+            <li class="nav-item"><a href="#visual-guide" class="nav-link">Visual Guide</a></li>
+        </ul>
+    </nav>
+
+    <main class="main">
+        <section class="hero">
+            <h1>Git & GitHub <br> Complete Guide</h1>
+            <p>From Beginner to Advanced. The reality of how 95%+ of companies use Version Control.</p>
+            <br>
+            <img src="https://i0.wp.com/build5nines.com/wp-content/uploads/2018/01/simplified-git-flow.png?resize=1024%2C354&ssl=1" alt="Git Flow" style="max-width: 800px; margin: 0 auto; display: block; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+        </section>
+
+        <article id="git-intro" class="section-card">
+            <h2><i class="fab fa-git-alt" style="color: var(--accent)"></i> What is Git?</h2>
+            <p><strong>Git</strong> is a **Distributed Version Control System (DVCS)**.</p>
+            
+            <div class="highlight-box">
+                <strong>🔍 Simple Meaning:</strong>
+                <p>Imagine you are writing a massive book. Every time you finish a chapter, you want to save a "snapshot" so you can go back if you mess up later. Git does exactly that for code.</p>
+                <p>Git helps you:</p>
+                <ul>
+                    <li>Track <strong>every single code change</strong> (who changed what, and when).</li>
+                    <li>Go back to <strong>previous versions</strong> instantly if something breaks.</li>
+                    <li>Work with <strong>teams without conflicts</strong> (multiple people editing same files).</li>
+                    <li>Keep your project <strong>safe & organized</strong>.</li>
+                </ul>
+                <p style="margin-top: 1rem; font-style: italic;">💡 Think of Git like: <strong>Google Docs for code</strong>, but offline + super powerful.</p>
+            </div>
+
+            <h3>📌 What is GitHub?</h3>
+            <p><strong>GitHub</strong> is a <strong>cloud platform</strong> that hosts Git repositories. It's like the social network for developers.</p>
+
+            <h3>🔍 Git vs GitHub (Very Important)</h3>
+            <p>Many beginners confuse these two. Here is the clear difference:</p>
+            <table>
+                <tr>
+                    <th>Git</th>
+                    <th>GitHub</th>
+                </tr>
+                <tr>
+                    <td>Tool (software) installed on PC</td>
+                    <td>Website / Cloud Platform</td>
+                </tr>
+                <tr>
+                    <td>Works offline (Local)</td>
+                    <td>Needs internet (Remote)</td>
+                </tr>
+                <tr>
+                    <td>Version control engine</td>
+                    <td>Hosting + Collaboration Tools</td>
+                </tr>
+                <tr>
+                    <td>Used via terminal (Command Line)</td>
+                    <td>Used via browser</td>
+                </tr>
+            </table>
+            <img src="https://nvie.com/img/git-model%402x.png" alt="Git Model">
+        </article>
+
+        <article id="industry-usage" class="section-card">
+            <h2><i class="fas fa-building" style="color: var(--warning)"></i> Industry Usage (REALITY)</h2>
+            <p>In the professional world, Git is not optional. It is the standard.</p>
+            
+            <h3>✅ Where Git is USED (95%+ companies)</h3>
+            <ul>
+                <li><strong>Software Companies:</strong> Google, Microsoft, Amazon, startups.</li>
+                <li><strong>Government IT:</strong> NIC, ISRO, DRDO use it for secure code management.</li>
+                <li><strong>Freelancing:</strong> Clients expect you to push code to their GitHub.</li>
+                <li><strong>Open Source:</strong> All major libraries (React, TensorFlow) live on GitHub.</li>
+                <li><strong>AI / ML:</strong> Tracking experiments and model versions.</li>
+            </ul>
+
+            <h3>❌ Where Git is NOT used</h3>
+            <ul>
+                <li>Very small one-person non-technical work.</li>
+                <li>Jobs that only use MS Excel / Word.</li>
+                <li>Legacy systems (Mainframes) - though even they are migrating.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>👉 Reality:</strong> If you don’t know Git → <strong>You generally cannot get a modern developer job.</strong>
+            </div>
+        </article>
+
+        <article id="internals" class="section-card">
+            <h2><i class="fas fa-cogs" style="color: #64748b"></i> How Git Works (Internals)</h2>
+            <img src="https://miro.medium.com/1%2AdiRLm1S5hkVoh5qeArND0Q.png" alt="Git Internals">
+            
+            <p>Git doesn't just "save" files. It moves them through <strong>3 main areas</strong>:</p>
+            <ol>
+                <li><strong>Working Directory (Writing Exam):</strong> This is your folder where you are currently editing files. It's like doing rough work.</li>
+                <li><strong>Staging Area (Final Answers):</strong> These are files you have marked as "ready to save". You select specific files to move here using `git add`.</li>
+                <li><strong>Repository (Submitted Sheet):</strong> This is the permanent history. When you `git commit`, files move from Staging to here.</li>
+            </ol>
+        </article>
+
+        <article id="setup" class="section-card">
+            <h2><i class="fas fa-wrench" style="color: var(--success)"></i> Installation & Config</h2>
+            
+            <h3>Installing Git</h3>
+            <p><strong>Windows:</strong> Download "Git Bash" from git-scm.com.</p>
+            <p><strong>Linux (Ubuntu/Debian):</strong></p>
+            <pre><code>sudo apt install git</code></pre>
+            
+            <p>Check if it works:</p>
+            <pre><code>git --version
+# Output: git version 2.43.0</code></pre>
+
+            <h3>⚙️ First-Time Configuration (MANDATORY)</h3>
+            <p>Git needs to know who is making changes. This "tags" every commit with your identity.</p>
+            <pre><code>git config --global user.name "Your Name"
+git config --global user.email "youremail@gmail.com"</code></pre>
+            
+            <p>Check your settings:</p>
+            <pre><code>git config --list</code></pre>
+        </article>
+
+        <article id="basics" class="section-card">
+            <h2><i class="fas fa-terminal" style="color: var(--accent)"></i> Basic Commands Explained</h2>
+            <p>These 6 commands cover ~80-90% of real industry usage. Here's exactly what they do.</p>
+            
+            <h3>1. git init (Start)</h3>
+            <p>Creates a new <strong>Git repository</strong>. It creates a hidden <code>.git</code> folder that tracks everything.</p>
+            <pre><code>git init
+# Output: Initialized empty Git repository in /project/.git/</code></pre>
+
+            <h3>2. git clone (Copy)</h3>
+            <p><strong>What it does:</strong> Downloads a copy of a remote GitHub repository to your computer.</p>
+            <div class="highlight-box">
+                Used when:
+                <ul>
+                    <li>Joining a new team or project.</li>
+                    <li>Downloading open-source code.</li>
+                </ul>
+            </div>
+            <pre><code>git clone https://github.com/user/project.git</code></pre>
+
+            <h3>3. git status (Check Status)</h3>
+            <p><strong>MOST USED COMMAND.</strong> Checks what has changed. If you are confused, run this.</p>
+            <pre><code>git status
+# Output:
+# On branch main
+# Untracked files: index.html</code></pre>
+
+            <h3>4. git add (Staging)</h3>
+            <p>Moves files to the "Staging Area" (ready to be saved).</p>
+            <pre><code>git add index.html   # Add one file
+git add .            # Add ALL changes (Standard)</code></pre>
+
+            <h3>5. git commit (Save)</h3>
+            <p>Saves a snapshot of your project history. Always write a message!</p>
+            <pre><code>git commit -m "Added login page layout"
+# Output: [main 95bfa60] Added login page layout</code></pre>
+
+            <h3>6. git log (History)</h3>
+            <p>Shows a list of all save points (commits).</p>
+            <pre><code>git log</code></pre>
+        </article>
+
+        <article id="branching" class="section-card">
+            <h2><i class="fas fa-code-branch" style="color: #d946ef"></i> Branching Strategy (Must Know)</h2>
+            <img src="https://pvigier.github.io/media/img/commit-graph/many_merges/gitamine.png" alt="Branching Graph">
+            
+            <p><strong>Why branches?</strong> Imagine working on a "Dark Mode" feature. You don't want to break the main website while testing. You create a separate "branch", write code there, and merge it only when it's perfect.</p>
+
+            <h3>Classic Commands</h3>
+            <table>
+                <tr>
+                    <td><code>git branch feature-x</code></td>
+                    <td>Create a new branch</td>
+                </tr>
+                <tr>
+                    <td><code>git checkout feature-x</code></td>
+                    <td>Switch to that branch</td>
+                </tr>
+                <tr>
+                    <td><code>git checkout -b feature-x</code></td>
+                    <td>Create & Switch in one step (Pro tip!)</td>
+                </tr>
+            </table>
+
+            <h3>Merging (The Reunion)</h3>
+            <p>When you are done, you bring your changes back to the main code.</p>
+            <pre><code>git checkout main        # Go back to main
+git merge feature-x      # Pull changes from feature</code></pre>
+
+            <h3>⚠️ Merge Conflict (Real Life)</h3>
+            <p>Occurs when two people edit the <strong>exact same line</strong>. Git panics and asks you to choose.</p>
+            <pre><code>CONFLICT (content): Merge conflict in index.html</code></pre>
+            <p><strong>Fix:</strong> Open the file, choose the correct code, delete the `<<<<` markers, then `git add .` and `commit`.</p>
+        </article>
+
+        <article id="github-flow" class="section-card">
+            <h2><i class="fab fa-github" style="color: var(--github-accent)"></i> GitHub Workflow (Industry Standard)</h2>
+            <img src="https://biostats-r.github.io/biostats/github/Pics/fork_branch_tutorial/1_workflow3.png" alt="GitHub Workflow">
+            
+            <h3>Step-by-Step Cycle:</h3>
+            <ol>
+                <li><strong>Clone</strong> repo to your laptop.</li>
+                <li>Create a <strong>new branch</strong> (e.g., `feature-payment`).</li>
+                <li>Write code, <strong>Add</strong>, and <strong>Commit</strong>.</li>
+                <li><strong>Push</strong> branch to GitHub.</li>
+                <li>Open a <strong>Pull Request (PR)</strong> on GitHub website.</li>
+                <li>Team reviews code (comments/approval).</li>
+                <li><strong>Merge</strong> PR into main.</li>
+            </ol>
+
+            <h3>Key Remote Commands</h3>
+            
+            <h4>1. git push (Upload)</h4>
+            <p>Sends your local commits to GitHub.</p>
+            <pre><code>git push -u origin main</code></pre>
+
+            <h4>2. git pull (Update - Very Important)</h4>
+            <p>Downloads new changes your team made. <strong>Run this every morning!</strong></p>
+            <pre><code>git pull origin main</code></pre>
+        </article>
+
+        <article id="collaboration" class="section-card">
+            <h2><i class="fas fa-users" style="color: #3b82f6"></i> Command Summary</h2>
+            <p>If you remember nothing else, remember these.</p>
+            <table>
+                <tr>
+                    <th>Command</th>
+                    <th>Real Meaning</th>
+                    <th>Frequency</th>
+                </tr>
+                <tr>
+                    <td><code>git clone</code></td>
+                    <td>Download project</td>
+                    <td>One time</td>
+                </tr>
+                <tr>
+                    <td><code>git pull</code></td>
+                    <td>Get team updates</td>
+                    <td>Daily 🟢</td>
+                </tr>
+                <tr>
+                    <td><code>git push</code></td>
+                    <td>Upload my work</td>
+                    <td>Daily 🟢</td>
+                </tr>
+                <tr>
+                    <td><code>git checkout</code></td>
+                    <td>Switch mode</td>
+                    <td>Hourly 🟢</td>
+                </tr>
+                <tr>
+                    <td><code>git status</code></td>
+                    <td>Check where I am</td>
+                    <td>Always 🟢</td>
+                </tr>
+            </table>
+        </article>
+
+        <article id="ai-ml" class="section-card">
+            <h2><i class="fas fa-brain" style="color: #ec4899"></i> Git + Deep Learning / AI</h2>
+            <img src="https://mlops-guide.github.io/assets/DiagramMLOPs.png" alt="ML Ops">
+
+            <h3>Why Git is CRITICAL in AI?</h3>
+            <p>In AI/ML, you don't just version code. You version <strong>experiments</strong>.</p>
+            <ul>
+                <li><strong>Dataset Versioning:</strong> Knowing exactly which data trained a model.</li>
+                <li><strong>Model Experiments:</strong> "Try ResNet50 vs EfficientNet" -> distinct branches.</li>
+                <li><strong>Reproducibility:</strong> Ensuring a paper's result can be recreated 6 months later.</li>
+            </ul>
+
+            <h3>Typical AI Repo Structure</h3>
+            <pre><code>project/
+ ├── data/            # (Ignored) Raw datasets - never push GBs of data!
+ ├── notebooks/       # (Experiments) Jupyter notebooks for testing
+ ├── models/          # (Ignored or tracked via LFS) Trained .pth/.h5 files
+ ├── src/             # (Clean Code) Python scripts for training/inference
+ ├── requirements.txt # Dependencies
+ └── README.md        # Instructions</code></pre>
+        </article>
+
+        <article id="advanced" class="section-card">
+            <h2><i class="fas fa-layer-group" style="color: #f59e0b"></i> Advanced Git (Senior Level)</h2>
+            <p>These commands are not used daily, but they save you from heavy disasters.</p>
+
+            <h3>1. git rebase (Clean History)</h3>
+            <p><strong>What it does:</strong> Rewrites history to make it a straight line, removing messy merge commits.</p>
+            <p><i>Analogy: "Replay my work as if I started it today."</i></p>
+            <pre><code>git rebase main</code></pre>
+            <div class="highlight-box" style="border-left-color: var(--danger);">
+                <strong>⚠️ WARNING:</strong>
+                Never rebase a public branch that others are working on!
+            </div>
+
+            <h3>2. git cherry-pick 🍒 (The Sniper)</h3>
+            <p><strong>What it does:</strong> Picks ONE specific commit from another branch and copies it to yours.</p>
+            <p><i>Scenario: A critical bug was fixed in `dev` branch. You need THAT fix in `prod` immediately, but not the rest of the unfinished code.</i></p>
+            <pre><code>git cherry-pick a1b2c3d</code></pre>
+
+            <h3>3. git stash pop (The Pocket)</h3>
+            <p><strong>What it does:</strong> Temporarily saves your unfinished work so you can switch branches.</p>
+            <pre><code>git stash        # Put work in pocket
+git checkout other-branch
+# ... do stuff ...
+git checkout original-branch
+git stash pop    # Take work out of pocket</code></pre>
+
+            <h3>4. git bisect 🔍 (The Detective)</h3>
+            <p><strong>What it does:</strong> Uses binary search to find exactly which commit broke the code. It's magic for old bugs.</p>
+            <pre><code>git bisect start
+git bisect bad   # Current version is broken
+git bisect good &lt;old-commit-hash&gt; # It worked back then</code></pre>
+        </article>
+
+        <article id="security" class="section-card">
+            <h2><i class="fas fa-shield-alt" style="color: var(--danger)"></i> Security & Rules</h2>
+            
+            <h3>⚠️ What NOT to Push (Industry Rule)</h3>
+            <p>Use a <code>.gitignore</code> file to strictly exclude:</p>
+            <pre><code>node_modules/    # Heavy dependencies
+.env             # API Keys & Secrets (CRITICAL)
+__pycache__/     # Python cache
+data/            # Large datasets
+models/          # Large binary model files</code></pre>
+
+            <h3>🔐 Best Practices</h3>
+            <ul>
+                <li><strong>Never push passwords.</strong> Use environment variables.</li>
+                <li><strong>SSH Keys:</strong> Use SSH instead of HTTPS for secure, password-less pushing.</li>
+                <li><strong>Small Commits:</strong> "Fix login button" is better than "Updated entire website".</li>
+            </ul>
+        </article>
+
+        <article id="interview" class="section-card">
+            <h2><i class="fas fa-user-tie" style="color: var(--success)"></i> Interview Questions (REAL)</h2>
+            
+            <div class="highlight-box">
+                <p><strong>Q: Git vs GitHub?</strong><br>Git is the tool (version control), GitHub is the hosting platform.</p>
+                <p><strong>Q: What is a commit?</strong><br>A snapshot of your project. It saves the state of all files at that moment.</p>
+                <p><strong>Q: Why branch?</strong><br>To allow parallel development so multiple people can work without breaking the main stable code.</p>
+                <p><strong>Q: What is a PR (Pull Request)?</strong><br>A request to merge your branch into the main codebase, usually requiring code review.</p>
+            </div>
+        </article>
+
+        <article id="visual-guide" class="section-card">
+            <h2><i class="fas fa-images" style="color: #6366f1"></i> Visual Guide: Every Image Explained</h2>
+            
+            <h3>1. Git Version Control – Big Picture</h3>
+            <img src="https://miro.medium.com/v2/resize%3Afit%3A1400/1%2AE1jdYRKin1hraL67-cKALw.png" alt="Git Big Picture">
+            <p><strong>What this shows:</strong> How Git stores every version (V1, V2, V3) safely. If V4 has a bug, you can instantly rollback to V3.</p>
+
+            <h3>2. Git Workflow Diagram</h3>
+            <img src="https://media2.dev.to/dynamic/image/width%3D800%2Cheight%3D%2Cfit%3Dscale-down%2Cgravity%3Dauto%2Cformat%3Dauto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fvpxeexqyfvf4hw3zxtbn.png" alt="Git Workflow">
+            <p><strong>The Golden Path:</strong> Working Dir (Edit) → Staging (Add) → Repository (Commit).<br><i>Analogy: Rough work → Final Answer → Submitted Exam.</i></p>
+
+            <h3>3. GitHub Repository Page</h3>
+            <img src="https://earthdatascience.org/images/earth-analytics/git-version-control/github-repo-interface.png" alt="GitHub Repo">
+            <p><strong>Your Resume:</strong> Recruiters look at your "Commits" (activity) and "README" (documentation). A clean repo = a hired developer.</p>
+
+            <h3>4. Git Commit Graph</h3>
+            <img src="https://i.sstatic.net/Hg5bt.png" alt="Commit Graph">
+            <p><strong>Timeline:</strong> Each dot is a snapshot. Split lines are branches (people working in parallel). Merged lines are where they combined work.</p>
+
+            <div class="highlight-box">
+                <strong>🎯 One-line truth:</strong> Git tracks your work. GitHub shows your work. Branches protect your work. Pull Requests prove your work.
+            </div>
+        </article>
+    </main>
+
+    <script>
+        // Smooth scroll highlighting for sidebar
+        const sections = document.querySelectorAll('article');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
