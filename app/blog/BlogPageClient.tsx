@@ -1,0 +1,186 @@
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { Clock, Tag, Search, ArrowRight } from 'lucide-react';
+import { blogPosts } from '@/lib/data';
+import { AnimatedSection, SectionHeading } from '@/components/sections/AnimatedSection';
+import { formatDate } from '@/lib/utils';
+import { cn } from '@/lib/utils';
+
+const allTags = Array.from(new Set(blogPosts.flatMap((p) => p.tags)));
+const allCategories = ['All', ...Array.from(new Set(blogPosts.map((p) => p.category)))];
+
+export default function BlogPageClient() {
+  const [search, setSearch] = useState('');
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filtered = blogPosts.filter((post) => {
+    const matchCat = activeCategory === 'All' || post.category === activeCategory;
+    const q = search.toLowerCase();
+    const matchSearch = !q || post.title.toLowerCase().includes(q) || post.excerpt.toLowerCase().includes(q) || post.tags.some((t) => t.toLowerCase().includes(q));
+    return matchCat && matchSearch;
+  });
+
+  const featured = blogPosts.filter((p) => p.featured);
+
+  return (
+    <div className="min-h-screen pt-16">
+      {/* Header */}
+      <section className="section-padding aurora-bg relative overflow-hidden" aria-label="Blog page header">
+        <div className="absolute inset-0 bg-grid opacity-20" aria-hidden="true" />
+        <div className="container-max relative z-10 text-center">
+          <SectionHeading
+            center
+            badge="Blog"
+            title="Thoughts &"
+            highlight="Writings"
+            description="Guides, tutorials, and notes on web development, Linux, cybersecurity, and more."
+          />
+        </div>
+      </section>
+
+      <section className="section-padding" aria-label="Blog posts">
+        <div className="container-max">
+          {/* Search */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="relative flex-1 max-w-md">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
+              <input
+                type="search"
+                placeholder="Search posts..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full pl-9 pr-4 py-2.5 glass rounded-xl border border-white/10 text-sm bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+                aria-label="Search blog posts"
+              />
+            </div>
+            <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter by category">
+              {allCategories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  role="tab"
+                  aria-selected={activeCategory === cat}
+                  className={cn(
+                    'px-4 py-2 rounded-xl text-sm font-medium transition-all',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+                    activeCategory === cat
+                      ? 'bg-primary text-primary-foreground shadow-glow-sm'
+                      : 'glass border border-white/10 text-muted-foreground hover:text-foreground hover:border-primary/30'
+                  )}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {filtered.length > 0 ? (
+            <motion.div
+              key={`${activeCategory}-${search}`}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {filtered.map((post, i) => (
+                <AnimatedSection key={post.slug} delay={i * 0.08}>
+                  <article className="group h-full glass rounded-2xl overflow-hidden border border-white/10 card-hover gradient-border">
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" aria-hidden="true" />
+                      <div className="absolute top-3 left-3">
+                        <span className="tech-badge text-xs">{post.category}</span>
+                      </div>
+                      {post.featured && (
+                        <div className="absolute top-3 right-3">
+                          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-primary/20 text-primary border border-primary/30">
+                            Featured
+                          </span>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="p-5">
+                      <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-3.5 h-3.5" aria-hidden="true" />
+                          {post.readTime}
+                        </span>
+                        <span>·</span>
+                        <time dateTime={post.date}>{formatDate(post.date)}</time>
+                      </div>
+
+                      <h2 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                        {post.title}
+                      </h2>
+                      <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed mb-4">
+                        {post.excerpt}
+                      </p>
+
+                      <div className="flex flex-wrap gap-1.5 mb-4" role="list" aria-label="Tags">
+                        {post.tags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-flex items-center gap-1 text-xs text-muted-foreground px-2 py-0.5 rounded-full bg-muted border border-border"
+                            role="listitem"
+                          >
+                            <Tag className="w-2.5 h-2.5" aria-hidden="true" />
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="flex items-center gap-1.5 text-sm text-primary hover:text-primary/80 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+                      >
+                        Read more
+                        <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                      </Link>
+                    </div>
+                  </article>
+                </AnimatedSection>
+              ))}
+            </motion.div>
+          ) : (
+            <div className="text-center py-20">
+              <p className="text-4xl mb-4" aria-hidden="true">📝</p>
+              <p className="text-muted-foreground">No posts found matching your search.</p>
+            </div>
+          )}
+
+          {/* Tags cloud */}
+          <AnimatedSection delay={0.3} className="mt-16">
+            <div className="glass rounded-2xl p-6 border border-white/10">
+              <h2 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                <Tag className="w-4 h-4 text-muted-foreground" aria-hidden="true" />
+                All Topics
+              </h2>
+              <div className="flex flex-wrap gap-2" role="list" aria-label="All topics">
+                {allTags.map((tag) => (
+                  <button
+                    key={tag}
+                    onClick={() => setSearch(tag)}
+                    className="text-xs font-medium px-3 py-1.5 rounded-full glass border border-white/10 text-muted-foreground hover:text-primary hover:border-primary/30 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    role="listitem"
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+    </div>
+  );
+}

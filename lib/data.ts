@@ -1,0 +1,383 @@
+export const siteConfig = {
+  name: 'Jaivik Prajapati',
+  title: 'Jaivik Prajapati — Full Stack Developer & Computer Engineering Student',
+  description:
+    'Computer Engineering student at BVM, Full Stack Developer, Cybersecurity Enthusiast, and MERN Stack Developer from Gujarat, India.',
+  url: 'https://jaivik.xyz',
+  ogImage: 'https://jaivik.xyz/og.png',
+  keywords: [
+    'Jaivik Prajapati',
+    'Full Stack Developer',
+    'MERN Developer',
+    'Computer Engineering Student',
+    'Web Developer Gujarat',
+    'Cybersecurity Enthusiast',
+    'Next.js Developer',
+    'React Developer',
+    'Node.js Developer',
+  ],
+  author: {
+    name: 'Jaivik Prajapati',
+    email: 'jaivikprajapati82@email.com',
+    location: 'Gujarat, India',
+    college: 'Birla Vishvakarma Mahavidyalaya (BVM)',
+    degree: 'B.E. Computer Engineering',
+    github: 'https://github.com/jaivik2005',
+    linkedin: 'https://www.linkedin.com/in/jaivik2005?utm_source=share_via&utm_content=profile&utm_medium=member_ios',
+    instagram: 'https://www.instagram.com/jaivik_2005?igsh=MXN2ZHhqdXh4bzdkeQ==',
+  },
+  nav: [
+    { label: 'About', href: '/about' },
+    { label: 'Skills', href: '/skills' },
+    { label: 'Projects', href: '/projects' },
+    { label: 'Experience', href: '/experience' },
+    { label: 'Education', href: '/education' },
+    { label: 'Certifications', href: '/certifications' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Resume', href: '/resume' },
+    { label: 'Contact', href: '/contact' },
+  ],
+};
+
+export const roles = [
+  'Computer Engineering Student',
+  'Full Stack Developer',
+  'MERN Stack Developer',
+  'Cybersecurity Enthusiast',
+  'Linux Power User',
+  'Future Software Engineer',
+];
+
+export const stats = [
+  { label: 'Years Coding', value: '3+' },
+  { label: 'Projects Shipped', value: '10+' },
+  { label: 'Technologies', value: '20+' },
+  { label: 'GitHub Commits', value: '500+' },
+];
+
+export const techStack = [
+  { name: 'React', icon: '/icons/react.svg', color: '#61DAFB' },
+  { name: 'Next.js', icon: '/icons/nextjs.svg', color: '#fff' },
+  { name: 'TypeScript', icon: '/icons/typescript.svg', color: '#3178C6' },
+  { name: 'Node.js', icon: '/icons/nodejs.svg', color: '#339933' },
+  { name: 'MongoDB', icon: '/icons/mongodb.svg', color: '#47A248' },
+  { name: 'PostgreSQL', icon: '/icons/postgresql.svg', color: '#336791' },
+  { name: 'Docker', icon: '/icons/docker.svg', color: '#2496ED' },
+  { name: 'Linux', icon: '/icons/linux.svg', color: '#FCC624' },
+  { name: 'Python', icon: '/icons/python.svg', color: '#3776AB' },
+  { name: 'Tailwind CSS', icon: '/icons/tailwindcss.svg', color: '#06B6D4' },
+  { name: 'Express.js', icon: '/icons/express.svg', color: '#fff' },
+  { name: 'Git', icon: '/icons/git.svg', color: '#F05032' },
+];
+
+export const projects = [
+  {
+    slug: 'ipl-management-system',
+    title: 'IPL Management System',
+    shortDescription: 'Full-featured cricket league management platform with team, player, and statistics management.',
+    description:
+      'A comprehensive IPL management system built with Node.js, Express, and MongoDB. Features complete team and player management, match statistics tracking, and secure authentication for admins and team managers.',
+    image: 'https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=800',
+    tech: ['Node.js', 'Express.js', 'MongoDB', 'JWT', 'REST API'],
+    github: 'https://github.com/jaivikprajapati/ipl-management',
+    demo: '',
+    status: 'Completed' as const,
+    featured: true,
+    features: [
+      'Team and player management with CRUD operations',
+      'Match scheduling and live score tracking',
+      'Player statistics and leaderboards',
+      'Secure JWT-based authentication',
+      'RESTful API architecture',
+    ],
+    category: 'Backend',
+    year: 2024,
+  },
+  {
+    slug: 'mern-notes',
+    title: 'MERN Notes',
+    shortDescription: 'A full-stack notes application with authentication and rich text editing.',
+    description:
+      'A complete notes management application built on the MERN stack. Users can create, edit, organize, and delete notes with markdown support, tagging, and a clean, intuitive UI.',
+    image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800',
+    tech: ['MongoDB', 'Express.js', 'React', 'Node.js', 'JWT'],
+    github: 'https://github.com/jaivikprajapati/mern-notes',
+    demo: '',
+    status: 'Completed' as const,
+    featured: true,
+    features: [
+      'User registration and authentication with JWT',
+      'Create, read, update, and delete notes',
+      'Tag-based organization and filtering',
+      'Responsive design for all devices',
+      'Search functionality across notes',
+    ],
+    category: 'Full Stack',
+    year: 2024,
+  },
+  {
+    slug: 'myntra-clone',
+    title: 'Myntra Clone',
+    shortDescription: 'A pixel-perfect e-commerce clone with cart, authentication, and product catalog.',
+    description:
+      'A fully functional Myntra clone built with the MERN stack, featuring a product catalog, shopping cart, user authentication, order management, and a polished UI that mirrors the original.',
+    image: 'https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=800',
+    tech: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Tailwind CSS'],
+    github: 'https://github.com/jaivikprajapati/myntra-clone',
+    demo: '',
+    status: 'Completed' as const,
+    featured: true,
+    features: [
+      'Product catalog with category filtering',
+      'Shopping cart with quantity management',
+      'User authentication and profile management',
+      'Order placement and order history',
+      'Responsive mobile-first design',
+    ],
+    category: 'Full Stack',
+    year: 2024,
+  },
+  {
+    slug: 'portfolio-website',
+    title: 'Portfolio Website',
+    shortDescription: 'This very portfolio — built with Next.js, Tailwind CSS, and Framer Motion.',
+    description:
+      'A production-ready portfolio website showcasing projects, skills, blog posts, and experience. Built with Next.js 13, TypeScript, Tailwind CSS, Framer Motion animations, and a Supabase backend.',
+    image: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800',
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Supabase'],
+    github: 'https://github.com/jaivikprajapati/portfolio',
+    demo: 'https://jaivik.xyz',
+    status: 'Maintained' as const,
+    featured: false,
+    features: [
+      'SEO optimized with dynamic metadata',
+      'Blog with MDX and syntax highlighting',
+      'Admin dashboard for content management',
+      'Contact form with email delivery',
+      'Dark/light mode with system detection',
+    ],
+    category: 'Frontend',
+    year: 2025,
+  },
+];
+
+export const blogPosts = [
+  {
+    slug: 'express-js-beginner-to-advanced',
+    title: 'Express.js: From Beginner to Advanced',
+    excerpt:
+      'A comprehensive guide covering Express.js from basic routing to advanced middleware, authentication, and deployment patterns.',
+    date: '2025-01-10',
+    readTime: '12 min read',
+    category: 'Node.js',
+    tags: ['Express.js', 'Node.js', 'Backend', 'JavaScript'],
+    featured: true,
+    image: 'https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    slug: 'complete-mongodb-guide',
+    title: 'The Complete MongoDB Guide',
+    excerpt:
+      'Everything you need to know about MongoDB — from installation and basic CRUD to aggregations, indexing, and performance optimization.',
+    date: '2025-01-05',
+    readTime: '15 min read',
+    category: 'Database',
+    tags: ['MongoDB', 'Database', 'NoSQL', 'JavaScript'],
+    featured: true,
+    image: 'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    slug: 'linux-commands-cheatsheet',
+    title: 'Linux Commands: The Ultimate Cheatsheet',
+    excerpt:
+      'A curated reference of essential Linux commands every developer should know, from file management to networking and process control.',
+    date: '2024-12-28',
+    readTime: '8 min read',
+    category: 'Linux',
+    tags: ['Linux', 'DevOps', 'Terminal', 'Shell'],
+    featured: true,
+    image: 'https://images.pexels.com/photos/1629367/pexels-photo-1629367.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+];
+
+export const certifications = [
+  {
+    id: '1',
+    title: 'JavaScript Algorithms and Data Structures',
+    issuer: 'freeCodeCamp',
+    date: '2024',
+    category: 'Programming',
+    image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=400',
+    skills: ['JavaScript', 'Data Structures', 'Algorithms'],
+    verifyUrl: '#',
+  },
+  {
+    id: '2',
+    title: 'Responsive Web Design',
+    issuer: 'freeCodeCamp',
+    date: '2024',
+    category: 'Web Development',
+    image: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=400',
+    skills: ['HTML5', 'CSS3', 'Responsive Design'],
+    verifyUrl: '#',
+  },
+  {
+    id: '3',
+    title: 'Ethical Hacking Fundamentals',
+    issuer: 'Cybrary',
+    date: '2024',
+    category: 'Cybersecurity',
+    image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=400',
+    skills: ['Network Security', 'Ethical Hacking', 'OWASP'],
+    verifyUrl: '#',
+  },
+  {
+    id: '4',
+    title: 'Linux Fundamentals',
+    issuer: 'Linux Foundation',
+    date: '2024',
+    category: 'Linux',
+    image: 'https://images.pexels.com/photos/1629367/pexels-photo-1629367.jpeg?auto=compress&cs=tinysrgb&w=400',
+    skills: ['Linux', 'Shell Scripting', 'System Administration'],
+    verifyUrl: '#',
+  },
+  {
+    id: '5',
+    title: 'AWS Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    date: '2024',
+    category: 'Cloud Computing',
+    image: 'https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=400',
+    skills: ['AWS', 'Cloud Computing', 'DevOps'],
+    verifyUrl: '#',
+  },
+  {
+    id: '6',
+    title: 'React Developer Certification',
+    issuer: 'Meta',
+    date: '2024',
+    category: 'Web Development',
+    image: 'https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=400',
+    skills: ['React', 'JavaScript', 'Frontend'],
+    verifyUrl: '#',
+  },
+];
+
+export const skills = {
+  frontend: [
+    { name: 'HTML5', level: 90, icon: '🌐' },
+    { name: 'CSS3', level: 85, icon: '🎨' },
+    { name: 'JavaScript', level: 85, icon: '⚡' },
+    { name: 'TypeScript', level: 75, icon: '🔷' },
+    { name: 'React', level: 80, icon: '⚛️' },
+    { name: 'Next.js', level: 75, icon: '▲' },
+    { name: 'Tailwind CSS', level: 85, icon: '💨' },
+    { name: 'Bootstrap', level: 80, icon: '🅱️' },
+  ],
+  backend: [
+    { name: 'Node.js', level: 80, icon: '🟢' },
+    { name: 'Express.js', level: 80, icon: '🚂' },
+    { name: 'REST APIs', level: 85, icon: '🔌' },
+    { name: 'JWT Auth', level: 75, icon: '🔐' },
+  ],
+  database: [
+    { name: 'MongoDB', level: 80, icon: '🍃' },
+    { name: 'MySQL', level: 70, icon: '🐬' },
+    { name: 'PostgreSQL', level: 65, icon: '🐘' },
+  ],
+  languages: [
+    { name: 'C', level: 75, icon: '©️' },
+    { name: 'C++', level: 70, icon: '➕' },
+    { name: 'JavaScript', level: 85, icon: '⚡' },
+    { name: 'Python', level: 70, icon: '🐍' },
+  ],
+  cybersecurity: [
+    { name: 'OWASP', level: 70, icon: '🛡️' },
+    { name: 'Network Security', level: 65, icon: '🔒' },
+    { name: 'Linux Security', level: 70, icon: '🐧' },
+    { name: 'Ethical Hacking', level: 60, icon: '🔓' },
+  ],
+  devops: [
+    { name: 'Git', level: 85, icon: '🌿' },
+    { name: 'GitHub', level: 85, icon: '🐙' },
+    { name: 'Docker', level: 65, icon: '🐋' },
+    { name: 'Linux', level: 80, icon: '🐧' },
+    { name: 'Vercel', level: 75, icon: '▲' },
+    { name: 'AWS Basics', level: 55, icon: '☁️' },
+  ],
+  tools: [
+    { name: 'VS Code', level: 90, icon: '💻' },
+    { name: 'Postman', level: 80, icon: '📮' },
+    { name: 'Figma', level: 65, icon: '🎭' },
+    { name: 'MongoDB Atlas', level: 75, icon: '🍃' },
+  ],
+};
+
+export const experience = [
+  {
+    id: '1',
+    type: 'project' as const,
+    title: 'Full Stack Developer',
+    company: 'Personal Projects',
+    duration: '2022 – Present',
+    location: 'Remote',
+    description:
+      'Independently developed multiple full-stack web applications, exploring modern technologies like MERN stack, Next.js, and TypeScript. Built production-ready applications with authentication, database integration, and responsive UIs.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Next.js', 'TypeScript'],
+    highlights: [
+      'Built 4+ production-grade MERN applications',
+      'Implemented JWT authentication and authorization',
+      'Deployed applications on Vercel and cloud platforms',
+      'Wrote clean, maintainable code with modern best practices',
+    ],
+  },
+  {
+    id: '2',
+    type: 'opensource' as const,
+    title: 'Open Source Contributor',
+    company: 'GitHub',
+    duration: '2023 – Present',
+    location: 'Remote',
+    description:
+      'Contributing to open source projects on GitHub, including bug fixes, documentation improvements, and new features for JavaScript and Node.js ecosystem projects.',
+    tech: ['JavaScript', 'TypeScript', 'Node.js', 'Git'],
+    highlights: [
+      '500+ commits across personal and contribution repos',
+      'Participated in Hacktoberfest 2023 and 2024',
+      'Maintained open-source Node.js utilities',
+      'Reviewed PRs and helped onboard new contributors',
+    ],
+  },
+];
+
+export const education = [
+  {
+    id: '1',
+    degree: 'Bachelor of Engineering — Computer Engineering',
+    institution: 'Birla Vishvakarma Mahavidyalaya (BVM)',
+    location: 'Anand, Gujarat, India',
+    duration: '2024 – Present',
+    description:
+      'Pursuing a BE in Computer Engineering with a focus on software development, data structures, computer networks, and cybersecurity. Active participant in college tech clubs and hackathons.',
+    courses: [
+      'Data Structures & Algorithms',
+      'Computer Networks',
+      'Operating Systems',
+      'Database Management',
+      'Software Engineering',
+      'Cybersecurity Fundamentals',
+    ],
+    current: true,
+  },
+  {
+    id: '2',
+    degree: 'Higher Secondary Certificate (HSC)',
+    institution: 'Gujarat State Board',
+    location: 'Gujarat, India',
+    duration: '2022 – 2024',
+    description:
+      'Completed higher secondary education with a focus on Science (Physics, Chemistry, Mathematics). Developed a strong analytical foundation for engineering studies.',
+    courses: ['Mathematics', 'Physics', 'Chemistry', 'Computer Science'],
+    current: false,
+  },
+];
